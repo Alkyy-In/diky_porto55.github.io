@@ -113,6 +113,14 @@ body {
   margin: 8px 0 12px;
 }
 
+.timeline-item ul {
+  padding-left: 20px;
+}
+
+.timeline-item li {
+  margin-bottom: 8px;
+}
+
 /* Projects */
 .projects-grid {
   display: grid;
@@ -136,6 +144,15 @@ body {
 .project-card h3 {
   color: var(--primary);
   margin-bottom: 10px;
+}
+
+.project-card a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
 }
 
 /* Skills */
@@ -206,5 +223,8 @@ footer {
     display: block;
     margin: 10px auto;
     max-width: 250px;
+  }
+  .skills-container {
+    grid-template-columns: 1fr;
   }
 }
