@@ -1,88 +1,210 @@
+/* style.css */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  --primary: #0d6efd;
+  --primary-dark: #0b5ed7;
+  --light: #f8f9fa;
+  --dark: #212529;
+  --gray: #6c757d;
+  --light-gray: #e9ecef;
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f8f9fa;
-  color: #333;
+  font-family: 'Poppins', sans-serif;
   line-height: 1.6;
+  color: var(--dark);
+  background: #fff;
 }
 
 .container {
-  max-width: 800px;
+  width: 90%;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 20px 0;
 }
 
-header {
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+  color: white;
+  padding: 80px 0;
   text-align: center;
-  padding: 40px 0;
-  border-bottom: 2px solid #e9ecef;
 }
 
-header h1 {
-  font-size: 2.5rem;
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 16px;
+}
+
+.hero h1 span {
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+}
+
+.btn {
+  display: inline-block;
+  background: white;
+  color: var(--primary);
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 10px;
+  transition: all 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: white;
+  color: var(--primary);
+}
+
+/* Sections */
+.section {
+  padding: 70px 0;
+}
+
+.section h2 {
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+  color: var(--primary);
+  text-align: center;
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+
+.timeline-item {
+  margin-bottom: 40px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.timeline-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.meta {
+  color: var(--gray);
+  font-style: italic;
+  margin: 8px 0 12px;
+}
+
+/* Projects */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  margin-top: 20px;
+}
+
+.project-card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: var(--primary);
   margin-bottom: 10px;
 }
 
-.profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+/* Skills */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
   margin-top: 20px;
-  border: 3px solid #0d6efd;
 }
 
-section {
-  padding: 30px 0;
-}
-
-h2 {
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #0d6efd;
-}
-
-ul {
+.skills-container ul {
   list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+  padding-left: 20px;
 }
 
-ul li {
-  background: #e9ecef;
-  padding: 8px 16px;
-  border-radius: 20px;
+.skills-container li {
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.skills-container li:before {
+  content: "✓";
+  color: var(--primary);
   font-weight: bold;
+  position: absolute;
+  left: -20px;
 }
 
-a {
-  color: #0d6efd;
+/* Contact */
+.contact-info {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.contact-info a {
+  color: var(--primary);
   text-decoration: none;
 }
 
-a:hover {
+.contact-info a:hover {
   text-decoration: underline;
 }
 
-footer {
+.contact-info i {
+  width: 24px;
   text-align: center;
-  padding: 30px 0;
-  border-top: 2px solid #e9ecef;
-  margin-top: 20px;
+  margin-right: 8px;
+  color: var(--primary);
 }
 
-/* Tampilan HP */
-@media (max-width: 600px) {
-  .container {
-    padding: 15px;
+/* Footer */
+footer {
+  background: var(--dark);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.2rem;
   }
-  header h1 {
-    font-size: 2rem;
+  .hero p {
+    font-size: 1.1rem;
+  }
+  .btn {
+    display: block;
+    margin: 10px auto;
+    max-width: 250px;
   }
 }
