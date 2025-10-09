@@ -1,235 +1,175 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diky Aditia Dwi Saputra - Portfolio Kelistrikan</title>
-    <style>
-        body {
-            font-family: 'Times New Roman', Times, serif;
-            background: linear-gradient(to bottom, #003366, #001a33);
-            color: #ffffff;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        header {
-            text-align: center;
-            padding: 60px 20px;
-            background-color: #ffd70033; /* Transparan kuning untuk nuansa listrik */
-            position: relative;
-        }
-        header h1 {
-            font-size: 3em;
-            margin: 0;
-            text-shadow: 0 0 10px #ffd700;
-        }
-        header p {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-        .contact a {
-            color: #ffd700;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-        .section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
-            50% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8); }
-            100% { box-shadow: 0 0 15px rgba(255, 215, 0, 0.5); }
-        }
-        h2 {
-            color: #ffd700;
-            border-bottom: 2px solid #228b22;
-            padding-bottom: 10px;
-        }
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-            position: relative;
-            padding-left: 20px;
-        }
-        li:before {
-            content: "⚡";
-            position: absolute;
-            left: 0;
-            color: #ff4500;
-        }
-        .project {
-            cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            margin-bottom: 20px;
-            padding: 10px;
-            border: 1px solid #ffd700;
-            border-radius: 5px;
-        }
-        .project:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 20px #ffd700;
-        }
-        /* Pola sirkuit sederhana sebagai background */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                45deg,
-                transparent,
-                transparent 10px,
-                rgba(255, 215, 0, 0.1) 10px,
-                rgba(255, 215, 0, 0.1) 20px
-            );
-            opacity: 0.2;
-            pointer-events: none;
-        }
-        /* Animasi alur listrik */
-        .circuit-line {
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background: #ffd700;
-            animation: flow 5s linear infinite;
-        }
-        @keyframes flow {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diky Aditia - Electrical Engineer & IoT Enthusiast</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div class="circuit-line" style="top: 100px;"></div>
-    <div class="circuit-line" style="top: 300px;"></div>
-    <div class="circuit-line" style="top: 500px;"></div>
-    <div class="circuit-line" style="top: 700px;"></div>
-    <div class="circuit-line" style="top: 900px;"></div>
+  <!-- Hero Section -->
+  <header class="hero">
+    <div class="container">
+      <h1>Halo, saya <span>Diky Aditia</span></h1>
+      <p>Electrical Engineering Diploma III • Panel Maker & IoT Integrator</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn">Lihat Proyek</a>
+        <a href="#contact" class="btn btn-outline">Kontak Saya</a>
+      </div>
+    </div>
+  </header>
 
-    <header>
-        <!-- Tambahkan foto profil Anda di sini, misalnya: <img src="path/to/your-photo.jpg" alt="Foto Profil" style="width: 150px; border-radius: 50%; border: 2px solid #ffd700;"> -->
-        <h1>DIKY ADITIA DWI SAPUTRA</h1>
-        <p>Electrical Engineer & IoT Enthusiast</p>
-        <div class="contact">
-            <a href="tel:085736832293">085736832293</a> |
-            <a href="mailto:dikyaditya5555@gmail.com">dikyaditya5555@gmail.com</a> |
-            <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank">LinkedIn</a> |
-            <a href="https://giga5555.github.io/diky_porto55.github.io/" target="_blank">GitHub</a>
-        </div>
-        <p>Ngawi, Indonesia</p>
-    </header>
+  <!-- About -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>Tentang Saya</h2>
+      <p>
+        Fresh graduate dari Politeknik Negeri Madiun dengan IPK 3.45/4.00 di bidang Teknik Elektro. 
+        Memiliki minat kuat dalam pembuatan panel listrik, pemeliharaan panel 20kV, dan integrasi IoT ke dalam infrastruktur kelistrikan. 
+        Aktif dalam lebih dari 10+ kegiatan kampus seperti kompetisi, webinar, dan pelatihan teknis. 
+        Saat ini mencari peluang kerja yang memungkinkan saya berkembang menjadi profesional di bidang kelistrikan dan otomasi.
+      </p>
+    </div>
+  </section>
 
-    <section class="section" id="about">
-        <h2>Tentang Saya</h2>
-        <p>Lulusan baru Teknik Elektro yang selalu memperluas pengalaman dan pengetahuan. Orang yang serba bisa dengan minat di instalasi dan pemeliharaan. Dikenal sebagai mahasiswa aktif dan pekerja keras yang suka berkolaborasi di lingkungan beragam. Mencari peluang kerja yang memberikan kesempatan berkembang menjadi karir profesional.</p>
-    </section>
+  <!-- Education -->
+  <section id="education" class="section bg-light">
+    <div class="container">
+      <h2>Pendidikan</h2>
+      <div class="timeline-item">
+        <h3>Diploma III Teknik Elektro</h3>
+        <p class="meta">Politeknik Negeri Madiun • Agustus 2022 – Juni 2025</p>
+        <p><strong>IPK:</strong> 3.45/4.00 (Sangat Memuaskan)</p>
+        <p><strong>Mata Kuliah Relevan:</strong> Panel Maker, Analisis Panel HVMDP/LVMDP, Instalasi Modul IoT, Sistem Grounding, PLC & SCADA</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="education">
-        <h2>Pendidikan</h2>
-        <h3>Politeknik Negeri Madiun - Kota Madiun</h3>
-        <p>Agustus 2022 - Juni 2025</p>
-        <p>Diploma III Teknik Elektro, IPK 3.45/4.00</p>
-        <p>Penghargaan: Sangat Baik</p>
-        <p>Mata Kuliah Relevan: Pembuatan Panel, Analisis Panel HVMDP dan LVMDP, Instalasi Modul IoT, Sistem Grounding, PLC dan SCADA.</p>
-        <p>Aktif berpartisipasi di lebih dari 10+ acara kampus, seperti kompetisi, webinar, dan workshop pelatihan keterampilan.</p>
-    </section>
-
-    <section class="section" id="experience">
-        <h2>Pengalaman Kerja</h2>
-        <h3>PT. BIMA ENERGI PRATAMA - Surabaya</h3>
-        <p>Januari 2024 - Juli 2024</p>
-        <p>Magang Teknik Elektro</p>
+  <!-- Experience -->
+  <section id="experience" class="section">
+    <div class="container">
+      <h2>Pengalaman Kerja</h2>
+      
+      <div class="timeline-item">
+        <h3>Electrical Engineering Intern</h3>
+        <p class="meta">PT. BIMA ENERGI PRATAMA, Surabaya • Jan 2024 – Jul 2024</p>
         <ul>
-            <li>Pembuatan panel 20kV, perbaikan dan reinstalasi PLC.</li>
-            <li>Membuat surat proyek dan rencana anggaran proyek.</li>
-            <li>Analisis dan instalasi power meter, OCR, modul IoT di panel.</li>
+          <li>Membuat panel listrik 20kV</li>
+          <li>Perbaikan dan instalasi ulang PLC</li>
+          <li>Analisis & instalasi power meter, OCR, dan modul IoT pada panel</li>
+          <li>Menyusun surat proyek dan rencana anggaran biaya</li>
         </ul>
-        <h3>MJM GROUP - Ponorogo</h3>
-        <p>Agustus 2025 - Sekarang</p>
-        <p>Pekerjaan Paruh Waktu</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Part Time Electrical Designer</h3>
+        <p class="meta">MJM GROUP, Ponorogo • Agustus 2025 – Sekarang</p>
         <ul>
-            <li>Membuat desain listrik dan rencana bangunan menggunakan aplikasi AutoCAD.</li>
-            <li>Memasang rangkaian listrik.</li>
-            <li>Membuat penangkal petir.</li>
+          <li>Membuat desain instalasi listrik & gambar bangunan menggunakan AutoCAD</li>
+          <li>Instalasi rangkaian listrik dan penangkal petir</li>
         </ul>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="organization">
-        <h2>Pengalaman Organisasi</h2>
-        <h3>Himpunan Mahasiswa D-III Teknik Elektro - Kota Madiun</h3>
-        <p>Juli 2024 - Juli 2025</p>
-        <p>Divisi Dokumentasi Media Informasi dan Komunikasi</p>
+  <!-- Organizational Experience -->
+  <section id="org" class="section bg-light">
+    <div class="container">
+      <h2>Pengalaman Organisasi</h2>
+      <div class="timeline-item">
+        <h3>Divisi Media & Dokumentasi</h3>
+        <p class="meta">Himpunan Mahasiswa D-III Teknik Elektro, Politeknik Negeri Madiun • Jul 2024 – Jul 2025</p>
         <ul>
-            <li>Meliput dan mendokumentasikan foto serta video semua kegiatan himpunan, seperti seminar dan kompetisi.</li>
-            <li>Membuat desain publikasi yang menarik dan informatif (poster, feed, dan video promosi).</li>
-            <li>Berkolaborasi lintas departemen untuk mendukung karya kreatif di semua divisi. Memimpin tiga anggota tim untuk mencapai tujuan divisi.</li>
+          <li>Mendokumentasikan kegiatan (foto & video) seperti seminar dan kompetisi</li>
+          <li>Membuat desain publikasi menarik: poster, feed media sosial, video promosi</li>
+          <li>Berkolaborasi lintas divisi dan memimpin tim 3 orang</li>
         </ul>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="projects">
-        <h2>Proyek</h2>
-        <div class="project">
-            <h3>Analisis Powermeter Berbasis IoT pada Panel Power House 20kV (2024)</h3>
-            <p>Analisis powermeter berbasis IoT pada panel rumah daya 20kV. <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" style="color: #ffd700;">Lihat Demo</a></p>
+  <!-- Projects -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Proyek Unggulan</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3><a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank">IoT-Based Powermeter Analysis</a></h3>
+          <p class="meta">2024</p>
+          <p>Analisis konsumsi daya pada panel 20kV dengan integrasi IoT. Data monitoring real-time tersedia di dashboard online.</p>
         </div>
-        <div class="project">
-            <h3>Smart Energy Building (2025)</h3>
-            <p>Bangunan energi pintar dengan integrasi IoT dan kontrol otomatis.</p>
+        <div class="project-card">
+          <h3>Smart Energy Building</h3>
+          <p class="meta">2025</p>
+          <p>Desain sistem energi pintar berbasis efisiensi dan kontrol otomatis untuk gedung.</p>
         </div>
-        <div class="project">
-            <h3>Pengujian Fungsional OCR Siemens menggunakan Injection Tester (2024)</h3>
-            <p>Pengujian fungsional OCR Siemens dengan tester injeksi untuk memastikan keamanan sistem.</p>
+        <div class="project-card">
+          <h3>Functional Testing Siemens OCR</h3>
+          <p class="meta">2024</p>
+          <p>Uji fungsi OCR Siemens menggunakan Injection Tester sesuai standar IEC.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="section" id="skills">
-        <h2>Keahlian</h2>
-        <h3>Soft Skills</h3>
-        <ul>
-            <li>Analytical Thinking</li>
-            <li>Critical Thinking</li>
-            <li>Logical Thinking</li>
-            <li>Leadership</li>
-            <li>Teamwork</li>
-            <li>Integrity</li>
+  <!-- Skills & Certification -->
+  <section id="skills" class="section bg-light">
+    <div class="container">
+      <h2>Keahlian & Sertifikasi</h2>
+      <div class="skills-container">
+        <div>
+          <h4>Hard Skills</h4>
+          <ul>
+            <li>Panel Maker (LV & MV hingga 20kV)</li>
+            <li>Instalasi & Pemeliharaan IoT</li>
+            <li>PLC & SCADA</li>
+            <li>AutoCAD Electrical</li>
+            <li>Sistem Grounding</li>
+            <li>Standar SNI, IEC, SPLN</li>
+            <li>Modbus RS485 Communication</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Soft Skills</h4>
+          <ul>
+            <li>Analytical & Critical Thinking</li>
             <li>Project Management</li>
-        </ul>
-        <h3>Hard Skills</h3>
-        <p>Insinyur listrik komprehensif yang mahir di tegangan rendah, menengah (hingga 20kV), dan sistem kontrol lanjutan. Kompetensi inti meliputi: instalasi listrik dan grounding; kepatuhan ketat terhadap standar SNI, IEC, dan SPLN untuk pengujian dan commissioning; serta integrasi Internet of Things (IoT) ke infrastruktur listrik. Keahlian meluas ke pengendalian mesin menggunakan logika terprogram, sistem terkomputerisasi, dan teknologi IT, termasuk instalasi Modbus slave RS.</p>
-    </section>
-
-    <section class="section" id="certifications">
-        <h2>Sertifikasi</h2>
-        <ul>
-            <li>EPT (2025): English Proficiency Test (Skor: 460)</li>
+            <li>Leadership & Teamwork</li>
+            <li>Integrity</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Sertifikasi</h4>
+          <ul>
+            <li>WISE-PaaS Core Level I & II (2024)</li>
+            <li>ELPT – English Proficiency (460) (2025)</li>
             <li>Certificate of Competency (2025)</li>
-            <li>WISE-PaaS Core Level I (2024)</li>
-            <li>WISE-PaaS Core Level II (2024)</li>
-        </ul>
-    </section>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Fitur interaktif: Efek spark pada hover proyek
-        document.querySelectorAll('.project').forEach(project => {
-            project.addEventListener('mouseover', () => {
-                project.style.boxShadow = '0 0 30px #ff4500';
-            });
-            project.addEventListener('mouseout', () => {
-                project.style.boxShadow = 'none';
-            });
-        });
-    </script>
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <div class="container">
+      <h2>Hubungi Saya</h2>
+      <div class="contact-info">
+        <p><i class="fas fa-phone"></i> 0857-3683-2293</p>
+        <p><i class="fas fa-envelope"></i> <a href="mailto:Dikyaditya5555@gmail.com">Dikyaditya5555@gmail.com</a></p>
+        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank">linkedin.com/in/diky-adit-3144722b2</a></p>
+        <p><i class="fas fa-map-marker-alt"></i> Tambakselo Timur, Kedunggalar, Ngawi, Jawa Timur</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Diky Aditia Dwi Saputra. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
