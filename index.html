@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" id="html">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,10 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
+<body id="body">
+  <!-- Toggle Theme -->
+  <button id="theme-toggle" aria-label="Toggle theme">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <!-- Hero Section -->
   <header class="hero">
     <div class="container">
+      <img src="https://drive.google.com/uc?export=view&id=1kQ7vJ9XhY4Zz3W2U1mN8oP6rL5sT4eR3" alt="Diky Aditia" class="profile-img">
       <h1>Halo, saya <span>Diky Aditia</span></h1>
       <p>Electrical Engineering Diploma III • Panel Maker & IoT Integrator</p>
       <div class="hero-buttons">
@@ -19,12 +25,6 @@
         <a href="#contact" class="btn btn-outline">Kontak Saya</a>
       </div>
     </div>
-        <nav>
-      <div class="theme-toggle">
-        <input type="checkbox" id="theme-toggle-checkbox">
-        <label for="theme-toggle-checkbox" class="theme-toggle-switch"></label>
-      </div>
-    </nav>
   </header>
 
   <!-- About -->
@@ -177,5 +177,33 @@
       <p>&copy; 2025 Diky Aditia Dwi Saputra. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Script for Theme Toggle -->
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const html = document.getElementById('html');
+    const icon = themeToggle.querySelector('i');
+
+    // Cek tema sebelumnya di localStorage
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+      html.classList.add('dark-mode');
+      icon.classList.replace('fa-moon', 'fa-sun');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      html.classList.toggle('dark-mode');
+      const isDark = html.classList.contains('dark-mode');
+      
+      // Ganti ikon
+      if (isDark) {
+        icon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        icon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  </script>
 </body>
 </html>
