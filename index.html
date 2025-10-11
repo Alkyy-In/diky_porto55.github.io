@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Diky Aditia - Electrical Engineer & IoT Enthusiast</title>
-  <!-- Tailwind CSS + Dark Mode Support -->
+  <!-- Tailwind CSS + Dark Mode -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -12,7 +12,9 @@
       theme: {
         extend: {
           colors: {
-            primary: '#0d6efd',
+            primary: '#2563eb', // biru solid
+            darkBg: '#0f172a', // slate-900
+            lightBg: '#ffffff',
           }
         }
       }
@@ -21,31 +23,33 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
+    body { font-family: 'Poppins', sans-serif; }
+    .dark { background-color: #0f172a !important; }
   </style>
 </head>
-<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+<body class="bg-lightBg text-gray-800 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300">
 
   <!-- Theme Toggle -->
   <button id="theme-toggle" 
-    class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow"
-    aria-label="Toggle dark mode">
-    <i id="theme-icon" class="fas fa-moon text-primary text-lg"></i>
+    class="fixed top-4 right-4 z-50 p-2.5 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all"
+    aria-label="Toggle theme">
+    <i id="theme-icon" class="fas fa-moon text-primary text-lg dark:hidden"></i>
+    <i id="theme-icon-dark" class="fas fa-sun text-yellow-400 text-lg hidden dark:block"></i>
   </button>
 
   <!-- Hero Section -->
-  <header class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
+  <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-20">
     <div class="container mx-auto px-4 text-center">
+      <!-- Ganti src di bawah ini dengan link gambar yang valid jika sudah punya -->
       <img 
-        src="https://drive.google.com/uc?export=view&id=1YZcVyn5-8v05XbrBzHvFoZX8udUhZTI9" 
-        class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover"
+        src="https://placehold.co/400x400/2563eb/white?text=Diky" 
+        alt="Diky Aditia"
+        class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-xl object-cover"
       >
       <h1 class="text-4xl md:text-5xl font-bold mb-4">Halo, saya <span class="font-extrabold">Diky Aditia</span></h1>
-      <p class="text-xl opacity-90 mb-8">Electrical Engineering Diploma III • Panel Maker & IoT Integrator</p>
+      <p class="text-xl opacity-95 mb-8">Electrical Engineering Diploma III • Panel Maker & IoT Integrator</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="#projects" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-full shadow hover:shadow-md transition">Lihat Proyek</a>
+        <a href="#projects" class="px-6 py-3 bg-white text-blue-700 font-semibold rounded-full shadow-md hover:bg-blue-50 transition">Lihat Proyek</a>
         <a href="#contact" class="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition">Kontak Saya</a>
       </div>
     </div>
@@ -65,12 +69,12 @@
   </section>
 
   <!-- Education -->
-  <section id="education" class="py-16 bg-gray-100 dark:bg-gray-800">
+  <section id="education" class="py-16 bg-gray-50 dark:bg-slate-800/50">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Pendidikan</h2>
       <div class="max-w-2xl mx-auto border-l-4 border-blue-500 pl-6 pb-6">
         <h3 class="text-2xl font-semibold">Diploma III Teknik Elektro</h3>
-        <p class="text-blue-500 italic">Politeknik Negeri Madiun • Agustus 2022 – Juni 2025</p>
+        <p class="text-blue-600 italic">Politeknik Negeri Madiun • Agustus 2022 – Juni 2025</p>
         <p class="mt-2"><span class="font-semibold">IPK:</span> 3.45/4.00 (Sangat Memuaskan)</p>
         <p class="mt-2"><span class="font-semibold">Mata Kuliah Relevan:</span> Panel Maker, Analisis Panel HVMDP/LVMDP, Instalasi Modul IoT, Sistem Grounding, PLC & SCADA</p>
       </div>
@@ -84,8 +88,8 @@
       
       <div class="max-w-2xl mx-auto mb-12">
         <h3 class="text-xl font-bold">Electrical Engineering Intern</h3>
-        <p class="text-blue-500 italic">PT. BIMA ENERGI PRATAMA, Surabaya • Jan 2024 – Jul 2024</p>
-        <ul class="mt-3 list-disc pl-5 space-y-1">
+        <p class="text-blue-600 italic">PT. BIMA ENERGI PRATAMA, Surabaya • Jan 2024 – Jul 2024</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
           <li>Membuat panel listrik 20kV</li>
           <li>Perbaikan dan instalasi ulang PLC</li>
           <li>Analisis & instalasi power meter, OCR, dan modul IoT pada panel</li>
@@ -95,8 +99,8 @@
 
       <div class="max-w-2xl mx-auto">
         <h3 class="text-xl font-bold">Part Time Electrical Designer</h3>
-        <p class="text-blue-500 italic">MJM GROUP, Ponorogo • Agustus 2025 – Sekarang</p>
-        <ul class="mt-3 list-disc pl-5 space-y-1">
+        <p class="text-blue-600 italic">MJM GROUP, Ponorogo • Agustus 2025 – Sekarang</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
           <li>Membuat desain instalasi listrik & gambar bangunan menggunakan AutoCAD</li>
           <li>Instalasi rangkaian listrik dan penangkal petir</li>
         </ul>
@@ -105,28 +109,34 @@
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-800">
+  <section id="projects" class="py-16 bg-gray-50 dark:bg-slate-800/50">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Proyek Unggulan</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-lg transition">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md hover:shadow-lg transition">
           <h3 class="text-xl font-bold text-blue-600 mb-2">
             <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="hover:underline">
               IoT-Based Powermeter Analysis
             </a>
           </h3>
           <p class="text-sm text-gray-500 mb-3">2024</p>
-          <p>Analisis konsumsi daya pada panel 20kV dengan integrasi IoT. Data monitoring real-time tersedia di dashboard online.</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Analisis konsumsi daya pada panel 20kV dengan integrasi IoT. Data monitoring real-time tersedia di dashboard online.
+          </p>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md">
           <h3 class="text-xl font-bold text-blue-600 mb-2">Smart Energy Building</h3>
           <p class="text-sm text-gray-500 mb-3">2025</p>
-          <p>Desain sistem energi pintar berbasis efisiensi dan kontrol otomatis untuk gedung.</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Desain sistem energi pintar berbasis efisiensi dan kontrol otomatis untuk gedung.
+          </p>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl shadow-md">
           <h3 class="text-xl font-bold text-blue-600 mb-2">Functional Testing Siemens OCR</h3>
           <p class="text-sm text-gray-500 mb-3">2024</p>
-          <p>Uji fungsi OCR Siemens menggunakan Injection Tester sesuai standar IEC.</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Uji fungsi OCR Siemens menggunakan Injection Tester sesuai standar IEC.
+          </p>
         </div>
       </div>
     </div>
@@ -139,7 +149,7 @@
       <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div>
           <h3 class="text-xl font-semibold mb-4 text-blue-600">Hard Skills</h3>
-          <ul class="space-y-2">
+          <ul class="space-y-2 text-gray-700 dark:text-gray-300">
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Panel Maker (LV & MV hingga 20kV)</li>
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Instalasi & Pemeliharaan IoT</li>
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> PLC & SCADA</li>
@@ -151,7 +161,7 @@
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-4 text-blue-600">Soft Skills</h3>
-          <ul class="space-y-2">
+          <ul class="space-y-2 text-gray-700 dark:text-gray-300">
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Analytical & Critical Thinking</li>
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Project Management</li>
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Leadership & Teamwork</li>
@@ -160,7 +170,7 @@
         </div>
         <div>
           <h3 class="text-xl font-semibold mb-4 text-blue-600">Sertifikasi</h3>
-          <ul class="space-y-2">
+          <ul class="space-y-2 text-gray-700 dark:text-gray-300">
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> WISE-PaaS Core Level I & II (2024)</li>
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> ELPT – English Proficiency (460) (2025)</li>
             <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Certificate of Competency (2025)</li>
@@ -171,10 +181,10 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-800">
+  <section id="contact" class="py-16 bg-gray-50 dark:bg-slate-800/50">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl font-bold text-blue-600 mb-8">Hubungi Saya</h2>
-      <div class="space-y-3 max-w-md mx-auto text-lg">
+      <div class="space-y-3 max-w-md mx-auto text-lg text-gray-700 dark:text-gray-300">
         <p><i class="fas fa-phone mr-2 text-blue-600"></i> 0857-3683-2293</p>
         <p><i class="fas fa-envelope mr-2 text-blue-600"></i> 
           <a href="mailto:Dikyaditya5555@gmail.com" class="text-blue-600 hover:underline">Dikyaditya5555@gmail.com</a>
@@ -188,7 +198,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
+  <footer class="bg-slate-800 text-white py-6">
     <div class="container mx-auto px-4 text-center">
       <p>&copy; 2025 Diky Aditia Dwi Saputra. All rights reserved.</p>
     </div>
@@ -197,26 +207,19 @@
   <!-- Theme Toggle Script -->
   <script>
     const toggleButton = document.getElementById('theme-toggle');
-    const icon = document.getElementById('theme-icon');
     
-    // Cek tema sebelumnya
-    if (localStorage.theme === 'dark' || 
-        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    // Cek tema dari localStorage atau sistem
+    if (localStorage.getItem('theme') === 'dark' || 
+        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
-      icon.classList.replace('fa-moon', 'fa-sun');
-    } else {
-      document.documentElement.classList.remove('dark');
     }
 
     toggleButton.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
-      
       if (document.documentElement.classList.contains('dark')) {
-        localStorage.theme = 'dark';
-        icon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
       } else {
-        localStorage.theme = 'light';
-        icon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
       }
     });
   </script>
