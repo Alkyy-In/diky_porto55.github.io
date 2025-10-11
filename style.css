@@ -1,92 +1,4 @@
 /* style.css */
-/* Warna default (light mode) */
-:root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-  --nav-bg: #f0f0f0;
-  --card-bg: #f9f9f9;
-  --border-color: #ccc;
-}
-
-/* Tema gelap */
-[data-theme="dark"] {
-  --bg-color: #121212;
-  --text-color: #ffffff;
-  --nav-bg: #1e1e1e;
-  --card-bg: #1e1e1e;
-  --border-color: #444;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color, color 0.3s ease;
-}
-
-nav {
-  background-color: var(--nav-bg);
-  padding: 1rem;
-}
-
-/* Contoh card */
-.card {
-  background-color: var(--card-bg);
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  margin: 1rem 0;
-}
-
-/* Toggle Switch */
-.theme-toggle {
-  display: flex;
-  justify-content: flex-end;
-  padding: 1rem;
-}
-
-.theme-toggle-switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
-}
-
-.theme-toggle-switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .slider {
-  background-color: #2196F3;
-}
-
-input:checked + .slider:before {
-  transform: translateX(26px);
-}
 * {
   margin: 0;
   padding: 0;
@@ -96,17 +8,27 @@ input:checked + .slider:before {
 :root {
   --primary: #0d6efd;
   --primary-dark: #0b5ed7;
-  --light: #f8f9fa;
-  --dark: #212529;
-  --gray: #6c757d;
-  --light-gray: #e9ecef;
+  --light-bg: #ffffff;
+  --dark-bg: #121212;
+  --light-text: #212529;
+  --dark-text: #f8f9fa;
+  --light-card: #ffffff;
+  --dark-card: #1e1e1e;
+  --light-border: #e9ecef;
+  --dark-border: #333333;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
   line-height: 1.6;
-  color: var(--dark);
-  background: #fff;
+  background-color: var(--light-bg);
+  color: var(--light-text);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
 }
 
 .container {
@@ -116,12 +38,52 @@ body {
   padding: 20px 0;
 }
 
+/* Theme Toggle Button */
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--light-card);
+  border: 1px solid var(--light-border);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+.dark-mode #theme-toggle {
+  background: var(--dark-card);
+  border-color: var(--dark-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+#theme-toggle i {
+  font-size: 18px;
+  color: var(--primary);
+}
+
 /* Hero */
 .hero {
-  background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
   color: white;
   padding: 80px 0;
   text-align: center;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
 .hero h1 {
@@ -180,13 +142,21 @@ body {
 }
 
 .bg-light {
-  background-color: var(--light);
+  background-color: #f8f9fa;
+}
+
+.dark-mode .bg-light {
+  background-color: #1a1a1a;
 }
 
 .timeline-item {
   margin-bottom: 40px;
   padding-bottom: 30px;
-  border-bottom: 1px solid var(--light-gray);
+  border-bottom: 1px solid var(--light-border);
+}
+
+.dark-mode .timeline-item {
+  border-bottom-color: var(--dark-border);
 }
 
 .timeline-item:last-child {
@@ -196,9 +166,11 @@ body {
 }
 
 .meta {
-  color: var(--gray);
-  font-style: italic;
-  margin: 8px 0 12px;
+  color: #6c757d;
+}
+
+.dark-mode .meta {
+  color: #aaa;
 }
 
 .timeline-item ul {
@@ -218,11 +190,16 @@ body {
 }
 
 .project-card {
-  background: white;
+  background: var(--light-card);
   padding: 25px;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   transition: transform 0.3s;
+}
+
+.dark-mode .project-card {
+  background: var(--dark-card);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .project-card:hover {
@@ -293,10 +270,14 @@ body {
 
 /* Footer */
 footer {
-  background: var(--dark);
+  background: var(--light-text);
   color: white;
   text-align: center;
   padding: 20px 0;
+}
+
+.dark-mode footer {
+  background: #1a1a1a;
 }
 
 /* Responsive */
