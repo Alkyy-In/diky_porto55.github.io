@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diky Aditia - Electrical Engineer & IoT Enthusiast</title>
+  <title>Diky Aditia - Electrical Engineer</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -20,51 +20,19 @@
       }
     }
   </script>
-  <!-- Font Retro Gaming -->
-  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Font retro hanya untuk teks utama (bukan tombol/daftar) */
-    .retro {
-      font-family: 'Press Start 2P', monospace;
-      font-size: 0.65rem; /* Press Start 2P sangat besar, jadi kecilkan */
-      letter-spacing: -0.5px;
-    }
-    body {
-      background-color: #ffffff;
-    }
-    .dark body {
-      background-color: #0f172a;
-    }
-    /* Cursor follower */
-    #cursor-follower {
-      position: fixed;
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: rgba(37, 99, 235, 0.6);
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
-      mix-blend-mode: difference;
-    }
-    @media (prefers-reduced-motion: no-preference) {
-      #cursor-follower {
-        transition: transform 0.1s ease-out;
-      }
-    }
+    body { font-family: 'Poppins', sans-serif; }
   </style>
 </head>
-<body class="bg-lightBg text-gray-800 dark:bg-darkBg dark:text-gray-100 transition-colors duration-300">
-
-  <!-- Cursor Follower -->
-  <div id="cursor-follower"></div>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
 
   <!-- Theme Toggle -->
   <button id="theme-toggle" 
-    class="fixed top-4 right-4 z-50 p-2.5 rounded-full bg-white dark:bg-slate-800 shadow-lg hover:shadow-xl transition-all">
-    <i id="theme-icon" class="fas fa-moon text-primary text-lg dark:hidden"></i>
-    <i id="theme-icon-dark" class="fas fa-sun text-yellow-400 text-lg hidden dark:block"></i>
+    class="fixed top-4 right-4 z-50 p-2.5 rounded-full bg-white dark:bg-gray-800 shadow-lg hover:shadow-xl transition-all">
+    <i class="fas fa-moon text-primary text-lg dark:hidden"></i>
+    <i class="fas fa-sun text-yellow-400 text-lg hidden dark:block"></i>
   </button>
 
   <!-- Hero Section -->
@@ -75,11 +43,12 @@
         alt="Diky Aditia"
         class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-xl object-cover"
       >
-      <h1 class="retro text-center mb-4">HALO, SAYA DIKY ADITIA</h1>
-      <p class="retro opacity-90 mb-8">ELECTRICAL ENGINEER • IOT ENTHUSIAST</p>
+      <h1 class="text-4xl md:text-5xl font-bold mb-3">Diky Aditia Dwi Saputra</h1>
+      <p class="text-xl opacity-95 mb-6">Electrical Engineering Graduate • Panel Maker & IoT Integrator</p>
+      <p class="max-w-2xl mx-auto mb-8">Fresh graduate from Politeknik Negeri Madiun with a passion for electrical panel design, 20kV systems, and IoT integration.</p>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="#projects" class="px-4 py-2 bg-white text-blue-700 font-mono text-xs font-bold rounded-full shadow-md hover:bg-blue-50 transition retro">LIHAT PROYEK</a>
-        <a href="#contact" class="px-4 py-2 bg-transparent border-2 border-white text-white font-mono text-xs font-bold rounded-full hover:bg-white/10 transition retro">KONTAK SAYA</a>
+        <a href="#projects" class="px-6 py-3 bg-white text-blue-700 font-semibold rounded-full shadow-md hover:bg-blue-50 transition">View Projects</a>
+        <a href="#contact" class="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition">Contact Me</a>
       </div>
     </div>
   </header>
@@ -87,122 +56,175 @@
   <!-- About -->
   <section id="about" class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="retro text-center text-blue-600 mb-6">TENTANG SAYA</h2>
-      <p class="text-sm md:text-base text-center max-w-3xl mx-auto leading-relaxed text-gray-700 dark:text-gray-300">
-        Fresh graduate dari Politeknik Negeri Madiun dengan IPK 3.45/4.00 di bidang Teknik Elektro. 
-        Memiliki minat kuat dalam pembuatan panel listrik, pemeliharaan panel 20kV, dan integrasi IoT ke dalam infrastruktur kelistrikan. 
-        Aktif dalam lebih dari 10+ kegiatan kampus seperti kompetisi, webinar, dan pelatihan teknis. 
-        Saat ini mencari peluang kerja yang memungkinkan saya berkembang menjadi profesional di bidang kelistrikan dan otomasi.
-      </p>
-    </div>
-  </section>
-
-  <!-- Education -->
-  <section id="education" class="py-16 bg-gray-50 dark:bg-slate-800/50">
-    <div class="container mx-auto px-4">
-      <h2 class="retro text-center text-blue-600 mb-8">PENDIDIKAN</h2>
-      <div class="max-w-2xl mx-auto border-l-4 border-blue-500 pl-6 pb-6">
-        <h3 class="retro">DIPLOMA III TEKNIK ELEKTRO</h3>
-        <p class="retro text-blue-600 mt-2">POLITEKNIK NEGERI MADIUN • 2022–2025</p>
-        <p class="mt-3 text-sm text-gray-700 dark:text-gray-300"><span class="font-semibold">IPK:</span> 3.45/4.00 (SANGAT MEMUASKAN)</p>
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">About Me</h2>
+      <div class="max-w-4xl mx-auto bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md">
+        <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+          A fresh graduate in <strong>Electrical Engineering</strong> from Politeknik Negeri Madiun (IPK: 3.45/4.00) with hands-on experience in:
+        </p>
+        <ul class="mt-4 grid grid-cols-1 md:grid-cols-2 gap-3 text-gray-700 dark:text-gray-300">
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> Panel maker for LV & MV systems (up to 20kV)</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> Installation & maintenance of IoT modules in electrical panels</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> PLC & SCADA systems, grounding, and Modbus RS485 communication</li>
+          <li class="flex items-start"><span class="text-blue-500 mr-2">•</span> Compliance with SNI, IEC, and SPLN standards</li>
+        </ul>
+        <p class="mt-4 text-gray-700 dark:text-gray-300">
+          Actively participated in 10+ campus events and currently seeking opportunities to grow as a professional in the electrical engineering field.
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- Experience -->
-  <section id="experience" class="py-16">
+  <!-- Education & Experience -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800/30">
     <div class="container mx-auto px-4">
-      <h2 class="retro text-center text-blue-600 mb-8">PENGALAMAN KERJA</h2>
-      
-      <div class="max-w-2xl mx-auto mb-10">
-        <h3 class="retro">ELECTRICAL ENGINEERING INTERN</h3>
-        <p class="retro text-blue-600 mt-1">PT. BIMA ENERGI PRATAMA • 2024</p>
-        <ul class="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-          <li>Panel maker 20kV</li>
-          <li>Perbaikan dan instalasi ulang PLC</li>
-          <li>Analisis & instalasi power meter, OCR, modul IoT</li>
-        </ul>
-      </div>
+      <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <!-- Education -->
+        <div>
+          <h2 class="text-2xl font-bold text-blue-600 mb-6">Education</h2>
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <h3 class="text-xl font-semibold">Diploma III in Electrical Engineering</h3>
+            <p class="text-blue-600 italic">Politeknik Negeri Madiun • Aug 2022 – Jun 2025</p>
+            <p class="mt-2"><strong>IPK:</strong> 3.45/4.00 (Very Good)</p>
+            <p class="mt-2"><strong>Relevant Coursework:</strong> Panel Maker, HVMDP/LVMDP Analysis, IoT Module Installation, Grounding System, PLC & SCADA</p>
+          </div>
+        </div>
 
-      <div class="max-w-2xl mx-auto">
-        <h3 class="retro">PART TIME ELECTRICAL DESIGNER</h3>
-        <p class="retro text-blue-600 mt-1">MJM GROUP • 2025–SEKARANG</p>
-        <ul class="mt-3 list-disc pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
-          <li>Desain instalasi listrik dengan AutoCAD</li>
-          <li>Instalasi rangkaian listrik & penangkal petir</li>
-        </ul>
+        <!-- Experience -->
+        <div>
+          <h2 class="text-2xl font-bold text-blue-600 mb-6">Work Experience</h2>
+          
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow mb-6">
+            <h3 class="text-lg font-semibold">Electrical Engineering Intern</h3>
+            <p class="text-blue-600 italic">PT. BIMA ENERGI PRATAMA, Surabaya • Jan – Jul 2024</p>
+            <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+              <li>Panel maker for 20kV systems</li>
+              <li>Repair and reinstallation of PLC</li>
+              <li>Analysis & installation of power meters, OCR, and IoT modules</li>
+              <li>Prepared project letters and budget plans</li>
+            </ul>
+          </div>
+
+          <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+            <h3 class="text-lg font-semibold">Part Time Electrical Designer</h3>
+            <p class="text-blue-600 italic">MJM GROUP, Ponorogo • Aug 2025 – Present</p>
+            <ul class="mt-3 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+              <li>Electrical design & building plans using AutoCAD</li>
+              <li>Installation of electrical circuits and lightning rods</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Projects -->
-  <section id="projects" class="py-16 bg-gray-50 dark:bg-slate-800/50">
+  <section id="projects" class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="retro text-center text-blue-600 mb-8">PROYEK UNGGULAN</h2>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow">
-          <h3 class="retro text-blue-600 mb-2">
-            <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="hover:underline">IOT-BASED POWERMETER</a>
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Featured Projects</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-blue-600 mb-2">
+            <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="hover:underline">
+              IoT-Based Powermeter Analysis
+            </a>
           </h3>
-          <p class="text-xs text-gray-600 dark:text-gray-400">2024</p>
-          <p class="mt-2 text-xs text-gray-700 dark:text-gray-300">Monitoring real-time panel 20kV via dashboard IoT.</p>
+          <p class="text-sm text-gray-500 mb-3">2024</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Real-time monitoring of 20kV power house panel with IoT integration. Live dashboard available.
+          </p>
         </div>
-        <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow">
-          <h3 class="retro text-blue-600 mb-2">SMART ENERGY BUILDING</h3>
-          <p class="text-xs text-gray-600 dark:text-gray-400">2025</p>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-bold text-blue-600 mb-2">Smart Energy Building</h3>
+          <p class="text-sm text-gray-500 mb-3">2025</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Design of an energy-efficient smart building system with automated control.
+          </p>
         </div>
-        <div class="bg-white dark:bg-slate-800 p-4 rounded-xl shadow">
-          <h3 class="retro text-blue-600 mb-2">FUNCTIONAL TESTING OCR</h3>
-          <p class="text-xs text-gray-600 dark:text-gray-400">2024</p>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-bold text-blue-600 mb-2">Functional Testing of Siemens OCR</h3>
+          <p class="text-sm text-gray-500 mb-3">2024</p>
+          <p class="text-gray-700 dark:text-gray-300">
+            Functional testing using Injection Tester according to IEC standards.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills & Certifications -->
+  <section class="py-16 bg-gray-50 dark:bg-gray-800/30">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Skills & Certifications</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Hard Skills</h3>
+          <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+            <li>• Panel Maker (LV & MV up to 20kV)</li>
+            <li>• IoT Integration in Electrical Systems</li>
+            <li>• PLC & SCADA</li>
+            <li>• AutoCAD Electrical</li>
+            <li>• Grounding System</li>
+            <li>• Modbus RS485 Communication</li>
+            <li>• SNI, IEC, SPLN Standards</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Soft Skills</h3>
+          <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+            <li>• Analytical & Critical Thinking</li>
+            <li>• Project Management</li>
+            <li>• Leadership & Teamwork</li>
+            <li>• Integrity</li>
+          </ul>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-blue-600 mb-4">Certifications</h3>
+          <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+            <li>• WISE-PaaS Core Level I & II (2024)</li>
+            <li>• English Proficiency Test – EPT (460) (2025)</li>
+            <li>• Certificate of Competency (2025)</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="py-16 bg-gray-50 dark:bg-slate-800/50">
+  <section id="contact" class="py-16">
     <div class="container mx-auto px-4 text-center">
-      <h2 class="retro text-center text-blue-600 mb-6">HUBUNGI SAYA</h2>
-      <div class="space-y-2 max-w-md mx-auto text-xs text-gray-700 dark:text-gray-300">
-        <p><i class="fas fa-phone mr-2 text-blue-600"></i> 0857-3683-2293</p>
-        <p><i class="fas fa-envelope mr-2 text-blue-600"></i> 
-          <a href="mailto:Dikyaditya5555@gmail.com" class="text-blue-600 hover:underline">Dikyaditya5555@gmail.com</a>
-        </p>
-        <p><i class="fab fa-linkedin mr-2 text-blue-600"></i> 
-          <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank" class="text-blue-600 hover:underline">LINKEDIN</a>
-        </p>
+      <h2 class="text-3xl font-bold text-blue-600 mb-8">Contact Me</h2>
+      <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md max-w-2xl mx-auto">
+        <p class="text-lg mb-4">I'm open to job opportunities and collaborations!</p>
+        <div class="space-y-3 text-gray-700 dark:text-gray-300">
+          <p><i class="fas fa-phone mr-2 text-blue-600"></i> 0857-3683-2293</p>
+          <p><i class="fas fa-envelope mr-2 text-blue-600"></i> 
+            <a href="mailto:dikyaditya5555@gmail.com" class="text-blue-600 hover:underline">dikyaditya5555@gmail.com</a>
+          </p>
+          <p><i class="fab fa-linkedin mr-2 text-blue-600"></i> 
+            <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/diky-adit-3144722b2</a>
+          </p>
+          <p class="mt-4 text-sm"><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i> Ngawi, Indonesia</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-slate-800 text-white py-4">
+  <footer class="bg-gray-800 text-white py-6">
     <div class="container mx-auto px-4 text-center">
-      <p class="retro text-xs">&copy; 2025 DIKY ADITIA DWI SAPUTRA</p>
+      <p>&copy; 2025 Diky Aditia Dwi Saputra. All rights reserved.</p>
     </div>
   </footer>
 
   <!-- Theme Toggle Script -->
   <script>
-    const toggleButton = document.getElementById('theme-toggle');
-    if (localStorage.getItem('theme') === 'dark' || 
-        (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    const toggle = document.getElementById('theme-toggle');
+    if (localStorage.theme === 'dark' || (!localStorage.theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark');
     }
-    toggleButton.addEventListener('click', () => {
+    toggle.addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    });
-  </script>
-
-  <!-- Cursor Follower Script -->
-  <script>
-    const cursor = document.getElementById('cursor-follower');
-    document.addEventListener('mousemove', (e) => {
-      const x = e.clientX;
-      const y = e.clientY;
-      cursor.style.left = `${x}px`;
-      cursor.style.top = `${y}px`;
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
     });
   </script>
 </body>
