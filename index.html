@@ -1,37 +1,62 @@
 <!DOCTYPE html>
-<html lang="id" id="html">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Diky Aditia - Electrical Engineer & IoT Enthusiast</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS + Dark Mode Support -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0d6efd',
+          }
+        }
+      }
+    }
+  </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
 </head>
-<body id="body">
-  <!-- Toggle Theme -->
-  <button id="theme-toggle" aria-label="Toggle theme">
-    <i class="fas fa-moon"></i>
+<body class="bg-white text-gray-800 dark:bg-gray-900 dark:text-gray-200 transition-colors duration-300">
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" 
+    class="fixed top-4 right-4 z-50 p-2 rounded-full bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow"
+    aria-label="Toggle dark mode">
+    <i id="theme-icon" class="fas fa-moon text-primary text-lg"></i>
   </button>
 
   <!-- Hero Section -->
-  <header class="hero">
-    <div class="container">
-      <img src="https://drive.google.com/uc?export=view&id=1kQ7vJ9XhY4Zz3W2U1mN8oP6rL5sT4eR3" alt="Diky Aditia" class="profile-img">
-      <h1>Halo, saya <span>Diky Aditia</span></h1>
-      <p>Electrical Engineering Diploma III • Panel Maker & IoT Integrator</p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn">Lihat Proyek</a>
-        <a href="#contact" class="btn btn-outline">Kontak Saya</a>
+  <header class="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
+    <div class="container mx-auto px-4 text-center">
+      <img 
+        src="https://drive.google.com/uc?export=view&id=1YZcVyn5-8v05XbrBzHvFoZX8udUhZTI9" 
+        alt="Diky Aditia"
+        class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-white shadow-lg object-cover"
+      >
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Halo, saya <span class="font-extrabold">Diky Aditia</span></h1>
+      <p class="text-xl opacity-90 mb-8">Electrical Engineering Diploma III • Panel Maker & IoT Integrator</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#projects" class="px-6 py-3 bg-white text-blue-600 font-semibold rounded-full shadow hover:shadow-md transition">Lihat Proyek</a>
+        <a href="#contact" class="px-6 py-3 bg-transparent border-2 border-white text-white font-semibold rounded-full hover:bg-white/10 transition">Kontak Saya</a>
       </div>
     </div>
   </header>
 
   <!-- About -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2>Tentang Saya</h2>
-      <p>
+  <section id="about" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-8">Tentang Saya</h2>
+      <p class="text-lg text-center max-w-3xl mx-auto leading-relaxed">
         Fresh graduate dari Politeknik Negeri Madiun dengan IPK 3.45/4.00 di bidang Teknik Elektro. 
         Memiliki minat kuat dalam pembuatan panel listrik, pemeliharaan panel 20kV, dan integrasi IoT ke dalam infrastruktur kelistrikan. 
         Aktif dalam lebih dari 10+ kegiatan kampus seperti kompetisi, webinar, dan pelatihan teknis. 
@@ -41,27 +66,27 @@
   </section>
 
   <!-- Education -->
-  <section id="education" class="section bg-light">
-    <div class="container">
-      <h2>Pendidikan</h2>
-      <div class="timeline-item">
-        <h3>Diploma III Teknik Elektro</h3>
-        <p class="meta">Politeknik Negeri Madiun • Agustus 2022 – Juni 2025</p>
-        <p><strong>IPK:</strong> 3.45/4.00 (Sangat Memuaskan)</p>
-        <p><strong>Mata Kuliah Relevan:</strong> Panel Maker, Analisis Panel HVMDP/LVMDP, Instalasi Modul IoT, Sistem Grounding, PLC & SCADA</p>
+  <section id="education" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Pendidikan</h2>
+      <div class="max-w-2xl mx-auto border-l-4 border-blue-500 pl-6 pb-6">
+        <h3 class="text-2xl font-semibold">Diploma III Teknik Elektro</h3>
+        <p class="text-blue-500 italic">Politeknik Negeri Madiun • Agustus 2022 – Juni 2025</p>
+        <p class="mt-2"><span class="font-semibold">IPK:</span> 3.45/4.00 (Sangat Memuaskan)</p>
+        <p class="mt-2"><span class="font-semibold">Mata Kuliah Relevan:</span> Panel Maker, Analisis Panel HVMDP/LVMDP, Instalasi Modul IoT, Sistem Grounding, PLC & SCADA</p>
       </div>
     </div>
   </section>
 
   <!-- Experience -->
-  <section id="experience" class="section">
-    <div class="container">
-      <h2>Pengalaman Kerja</h2>
+  <section id="experience" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Pengalaman Kerja</h2>
       
-      <div class="timeline-item">
-        <h3>Electrical Engineering Intern</h3>
-        <p class="meta">PT. BIMA ENERGI PRATAMA, Surabaya • Jan 2024 – Jul 2024</p>
-        <ul>
+      <div class="max-w-2xl mx-auto mb-12">
+        <h3 class="text-xl font-bold">Electrical Engineering Intern</h3>
+        <p class="text-blue-500 italic">PT. BIMA ENERGI PRATAMA, Surabaya • Jan 2024 – Jul 2024</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1">
           <li>Membuat panel listrik 20kV</li>
           <li>Perbaikan dan instalasi ulang PLC</li>
           <li>Analisis & instalasi power meter, OCR, dan modul IoT pada panel</li>
@@ -69,10 +94,10 @@
         </ul>
       </div>
 
-      <div class="timeline-item">
-        <h3>Part Time Electrical Designer</h3>
-        <p class="meta">MJM GROUP, Ponorogo • Agustus 2025 – Sekarang</p>
-        <ul>
+      <div class="max-w-2xl mx-auto">
+        <h3 class="text-xl font-bold">Part Time Electrical Designer</h3>
+        <p class="text-blue-500 italic">MJM GROUP, Ponorogo • Agustus 2025 – Sekarang</p>
+        <ul class="mt-3 list-disc pl-5 space-y-1">
           <li>Membuat desain instalasi listrik & gambar bangunan menggunakan AutoCAD</li>
           <li>Instalasi rangkaian listrik dan penangkal petir</li>
         </ul>
@@ -80,78 +105,66 @@
     </div>
   </section>
 
-  <!-- Organizational Experience -->
-  <section id="org" class="section bg-light">
-    <div class="container">
-      <h2>Pengalaman Organisasi</h2>
-      <div class="timeline-item">
-        <h3>Divisi Media & Dokumentasi</h3>
-        <p class="meta">Himpunan Mahasiswa D-III Teknik Elektro, Politeknik Negeri Madiun • Jul 2024 – Jul 2025</p>
-        <ul>
-          <li>Mendokumentasikan kegiatan (foto & video) seperti seminar dan kompetisi</li>
-          <li>Membuat desain publikasi menarik: poster, feed media sosial, video promosi</li>
-          <li>Berkolaborasi lintas divisi dan memimpin tim 3 orang</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- Projects -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2>Proyek Unggulan</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <h3><a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank">IoT-Based Powermeter Analysis</a></h3>
-          <p class="meta">2024</p>
+  <section id="projects" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Proyek Unggulan</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-bold text-blue-600 mb-2">
+            <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="hover:underline">
+              IoT-Based Powermeter Analysis
+            </a>
+          </h3>
+          <p class="text-sm text-gray-500 mb-3">2024</p>
           <p>Analisis konsumsi daya pada panel 20kV dengan integrasi IoT. Data monitoring real-time tersedia di dashboard online.</p>
         </div>
-        <div class="project-card">
-          <h3>Smart Energy Building</h3>
-          <p class="meta">2025</p>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-bold text-blue-600 mb-2">Smart Energy Building</h3>
+          <p class="text-sm text-gray-500 mb-3">2025</p>
           <p>Desain sistem energi pintar berbasis efisiensi dan kontrol otomatis untuk gedung.</p>
         </div>
-        <div class="project-card">
-          <h3>Functional Testing Siemens OCR</h3>
-          <p class="meta">2024</p>
+        <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-bold text-blue-600 mb-2">Functional Testing Siemens OCR</h3>
+          <p class="text-sm text-gray-500 mb-3">2024</p>
           <p>Uji fungsi OCR Siemens menggunakan Injection Tester sesuai standar IEC.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills & Certification -->
-  <section id="skills" class="section bg-light">
-    <div class="container">
-      <h2>Keahlian & Sertifikasi</h2>
-      <div class="skills-container">
+  <!-- Skills -->
+  <section id="skills" class="py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-blue-600 mb-10">Keahlian & Sertifikasi</h2>
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         <div>
-          <h4>Hard Skills</h4>
-          <ul>
-            <li>Panel Maker (LV & MV hingga 20kV)</li>
-            <li>Instalasi & Pemeliharaan IoT</li>
-            <li>PLC & SCADA</li>
-            <li>AutoCAD Electrical</li>
-            <li>Sistem Grounding</li>
-            <li>Standar SNI, IEC, SPLN</li>
-            <li>Modbus RS485 Communication</li>
+          <h3 class="text-xl font-semibold mb-4 text-blue-600">Hard Skills</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Panel Maker (LV & MV hingga 20kV)</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Instalasi & Pemeliharaan IoT</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> PLC & SCADA</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> AutoCAD Electrical</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Sistem Grounding</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Standar SNI, IEC, SPLN</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Modbus RS485 Communication</li>
           </ul>
         </div>
         <div>
-          <h4>Soft Skills</h4>
-          <ul>
-            <li>Analytical & Critical Thinking</li>
-            <li>Project Management</li>
-            <li>Leadership & Teamwork</li>
-            <li>Integrity</li>
+          <h3 class="text-xl font-semibold mb-4 text-blue-600">Soft Skills</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Analytical & Critical Thinking</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Project Management</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Leadership & Teamwork</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Integrity</li>
           </ul>
         </div>
         <div>
-          <h4>Sertifikasi</h4>
-          <ul>
-            <li>WISE-PaaS Core Level I & II (2024)</li>
-            <li>ELPT – English Proficiency (460) (2025)</li>
-            <li>Certificate of Competency (2025)</li>
+          <h3 class="text-xl font-semibold mb-4 text-blue-600">Sertifikasi</h3>
+          <ul class="space-y-2">
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> WISE-PaaS Core Level I & II (2024)</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> ELPT – English Proficiency (460) (2025)</li>
+            <li class="flex items-start"><span class="text-blue-500 mr-2">✓</span> Certificate of Competency (2025)</li>
           </ul>
         </div>
       </div>
@@ -159,49 +172,52 @@
   </section>
 
   <!-- Contact -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2>Hubungi Saya</h2>
-      <div class="contact-info">
-        <p><i class="fas fa-phone"></i> 0857-3683-2293</p>
-        <p><i class="fas fa-envelope"></i> <a href="mailto:Dikyaditya5555@gmail.com">Dikyaditya5555@gmail.com</a></p>
-        <p><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank">linkedin.com/in/diky-adit-3144722b2</a></p>
-        <p><i class="fas fa-map-marker-alt"></i> Tambakselo Timur, Kedunggalar, Ngawi, Jawa Timur</p>
+  <section id="contact" class="py-16 bg-gray-100 dark:bg-gray-800">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-blue-600 mb-8">Hubungi Saya</h2>
+      <div class="space-y-3 max-w-md mx-auto text-lg">
+        <p><i class="fas fa-phone mr-2 text-blue-600"></i> 0857-3683-2293</p>
+        <p><i class="fas fa-envelope mr-2 text-blue-600"></i> 
+          <a href="mailto:Dikyaditya5555@gmail.com" class="text-blue-600 hover:underline">Dikyaditya5555@gmail.com</a>
+        </p>
+        <p><i class="fab fa-linkedin mr-2 text-blue-600"></i> 
+          <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank" class="text-blue-600 hover:underline">linkedin.com/in/diky-adit-3144722b2</a>
+        </p>
+        <p><i class="fas fa-map-marker-alt mr-2 text-blue-600"></i> Tambakselo Timur, Kedunggalar, Ngawi, Jawa Timur</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto px-4 text-center">
       <p>&copy; 2025 Diky Aditia Dwi Saputra. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Script for Theme Toggle -->
+  <!-- Theme Toggle Script -->
   <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const html = document.getElementById('html');
-    const icon = themeToggle.querySelector('i');
-
-    // Cek tema sebelumnya di localStorage
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    if (currentTheme === 'dark') {
-      html.classList.add('dark-mode');
+    const toggleButton = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    
+    // Cek tema sebelumnya
+    if (localStorage.theme === 'dark' || 
+        (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
       icon.classList.replace('fa-moon', 'fa-sun');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
 
-    themeToggle.addEventListener('click', () => {
-      html.classList.toggle('dark-mode');
-      const isDark = html.classList.contains('dark-mode');
+    toggleButton.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
       
-      // Ganti ikon
-      if (isDark) {
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.theme = 'dark';
         icon.classList.replace('fa-moon', 'fa-sun');
-        localStorage.setItem('theme', 'dark');
       } else {
+        localStorage.theme = 'light';
         icon.classList.replace('fa-sun', 'fa-moon');
-        localStorage.setItem('theme', 'light');
       }
     });
   </script>
