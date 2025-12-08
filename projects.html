@@ -1,110 +1,869 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Projects - Diky Aditia</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-    }
-    .hero {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: white;
-      padding: 60px 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - ALKYY Industries</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --alkyy-blue: #2563eb;
+            --alkyy-blue-dark: #1d4ed8;
+            --alkyy-light-bg: #f8fafc;
+            --alkyy-dark-bg: #0f172a;
+            --alkyy-light-text: #0f172a;
+            --alkyy-dark-text: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
+            padding-top: 70px;
+            overflow-x: hidden;
+        }
+        
+        body.light-theme {
+            background-color: var(--alkyy-light-bg);
+            color: var(--alkyy-light-text);
+        }
+        
+        body.dark-theme {
+            background-color: var(--alkyy-dark-bg);
+            color: var(--alkyy-dark-text);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.light-theme .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .navbar {
+            background-color: var(--alkyy-dark-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lightning-icon {
+            transition: transform 0.2s ease;
+            animation: pulseLightning 2s infinite;
+        }
+        
+        .lightning-icon:hover {
+            animation: shakeLightning 0.5s ease-in-out;
+        }
+        
+        @keyframes pulseLightning {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes shakeLightning {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-3px) rotate(-5deg); }
+            50% { transform: translateX(3px) rotate(5deg); }
+            75% { transform: translateX(-3px) rotate(-5deg); }
+        }
+        
+        body.light-theme .navbar-brand,
+        body.light-theme .nav-link {
+            color: var(--alkyy-blue-dark) !important;
+        }
+        
+        body.dark-theme .navbar-brand,
+        body.dark-theme .nav-link {
+            color: white !important;
+        }
+        
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-theme .theme-toggle-btn {
+            color: var(--alkyy-blue-dark);
+            background: rgba(29, 78, 216, 0.1);
+        }
+        
+        body.dark-theme .theme-toggle-btn {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-toggle-btn:hover {
+            transform: rotate(30deg);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            border-radius: 2px;
+        }
+        
+        .project-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        body.light-theme .project-card {
+            background: white;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .project-card {
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        body.light-theme .project-title {
+            color: var(--alkyy-blue-dark);
+        }
+        
+        body.dark-theme .project-title {
+            color: white;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        body.light-theme .project-meta {
+            color: #64748b;
+        }
+        
+        body.dark-theme .project-meta {
+            color: #94a3b8;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        body.light-theme .project-stats {
+            border-top-color: #e2e8f0;
+        }
+        
+        body.dark-theme .project-stats {
+            border-top-color: #334155;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        body.light-theme .stat-number {
+            color: var(--alkyy-blue-dark);
+        }
+        
+        body.dark-theme .stat-number {
+            color: var(--alkyy-blue);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .hero-section {
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Custom navbar toggler */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            position: relative;
+        }
+        
+        .navbar-toggler-icon {
+            background: none;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            display: block;
+        }
+        
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler-icon::before {
+            top: 0;
+        }
+        
+        .navbar-toggler-icon::after {
+            bottom: 0;
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+            background: transparent;
+        }
+        
+        /* Move cat animation */
+        .move-cat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            animation: floatCat 3s ease-in-out infinite;
+        }
+        
+        .move-cat:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+        }
+        
+        @keyframes floatCat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Click animation */
+        .click-animation {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--alkyy-blue);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: clickRipple 0.6s ease-out;
+        }
+        
+        @keyframes clickRipple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.7;
+            }
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .project-title {
+                font-size: 1.2rem;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+            
+            .move-cat {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-title::after {
+                width: 80px;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+            
+            .project-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .move-cat {
+                width: 45px;
+                height: 45px;
+                font-size: 0.9rem;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        
+        /* Offcanvas styling */
+        body.light-theme .offcanvas {
+            background-color: white;
+            color: var(--alkyy-light-text);
+        }
+        
+        body.dark-theme .offcanvas {
+            background-color: var(--alkyy-dark-bg);
+            color: var(--alkyy-dark-text);
+        }
+        
+        body.light-theme .offcanvas .nav-link {
+            color: var(--alkyy-blue-dark) !important;
+        }
+        
+        body.dark-theme .offcanvas .nav-link {
+            color: white !important;
+        }
+        
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        body.light-theme .offcanvas-header {
+            border-bottom-color: rgba(0,0,0,0.1);
+        }
+        
+        /* Category filter */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .category-btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-theme .category-btn {
+            background: rgba(37, 99, 235, 0.1);
+            color: var(--alkyy-blue-dark);
+        }
+        
+        body.dark-theme .category-btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .category-btn.active,
+        .category-btn:hover {
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            color: white;
+        }
+        
+        /* Back to menu button - FIXED POSITION BELOW NAVBAR */
+        .back-to-menu {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+        
+        .back-to-menu:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+        }
+        
+        /* Adjust for mobile */
+        @media (max-width: 768px) {
+            .back-to-menu {
+                top: 70px;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Back to Menu Button -->
+    <a href="menu.html" class="back-to-menu" title="Back to Menu">
+        <i class="fas fa-arrow-left"></i>
+    </a>
 
-  <!-- Back to Home -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-bolt lightning-icon"></i>
+                <span>ALKYY-IN</span>
+            </a>
+            
+            <button class="theme-toggle-btn" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <div class="navbar-nav ms-auto d-none d-lg-flex">
+                <a class="nav-link" href="menu.html">Menu</a>
+                <a class="nav-link" href="about.html">About</a>
+                <a class="nav-link" href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <i class="fas fa-bolt lightning-icon"></i>ALKYY-IN
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="menu.html" data-bs-dismiss="offcanvas">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about.html" data-bs-dismiss="offcanvas">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html" data-bs-dismiss="offcanvas">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Our Electrical Energy Projects</h1>
+            <p class="hero-subtitle">Discover our portfolio of successful electrical installations, power systems, and energy solutions that power progress across industries.</p>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
     <div class="container">
-      <a class="navbar-brand" href="index.html">← Back to Home</a>
+        <div class="category-filter">
+            <button class="category-btn active" data-category="all">All Projects</button>
+            <button class="category-btn" data-category="industrial">Industrial</button>
+            <button class="category-btn" data-category="commercial">Commercial</button>
+            <button class="category-btn" data-category="residential">Residential</button>
+            <button class="category-btn" data-category="renewable">Renewable</button>
+        </div>
     </div>
-  </nav>
 
-  <!-- Hero -->
-  <header class="hero">
-    <div class="container text-center">
-      <h1 class="display-5 fw-bold">My Projects</h1>
-      <p class="lead">Real-world applications in electrical engineering & IoT</p>
+    <!-- Projects Grid -->
+    <section class="container">
+        <div class="row" id="projectsContainer">
+
+            <!-- Smart Industrial Oven with IoT -->
+            <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="FOTO1.jpg" alt="Smart Industrial Oven with IoT">
+                        <span class="project-badge bg-success">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Industrial Oven with IoT</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>2025</span>
+                            <span><i class="fas fa-map-marker-alt me-2"></i>Laboratory</span>
+                        </div>
+                        <p class="project-description">
+                            Smart  oven with dual heater, exhaust system, and integrated energy monitoring using REX-C700 PID controller, AT4PW smart breaker, and Raspberry Pi 3 for real-time data visualization and remote monitoring.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">Dual</span>
+                                <span class="stat-label">Heaters</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">IoT</span>
+                                <span class="stat-label">Integrated</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Smart</span>
+                                <span class="stat-label">Monitoring</span>
+                            </div>
+                        </div>
+                        <a href="ovenproject.html" class="btn btn-primary btn-sm w-100 mt-3">View Project</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 1: IoT-Based Powermeter Analysis -->
+            <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=IoT+Powermeter" alt="IoT-Based Powermeter Analysis">
+                        <span class="project-badge bg-success">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">IoT-Based Powermeter Analysis</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>2024</span>
+                            <span><i class="fas fa-map-marker-alt me-2"></i>Power House</span>
+                        </div>
+                        <p class="project-description">
+                            Real-time monitoring of 20kV power house panel with IoT integration. Includes voltage, current, and power analysis via Modbus RS485.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">20 kV</span>
+                                <span class="stat-label">Voltage Level</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">RS485</span>
+                                <span class="stat-label">Protocol</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Live</span>
+                                <span class="stat-label">Dashboard</span>
+                            </div>
+                        </div>
+                        <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="btn btn-primary btn-sm w-100 mt-3">View Live Dashboard</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2: Smart Energy Building -->
+            <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Smart+Building" alt="Smart Energy Building">
+                        <span class="project-badge bg-warning text-dark">In Progress</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smart Energy Building</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>2025</span>
+                            <span><i class="fas fa-map-marker-alt me-2"></i>Commercial</span>
+                        </div>
+                        <p class="project-description">
+                            Design of an energy-efficient smart building system with automated control and monitoring.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">Auto</span>
+                                <span class="stat-label">Control</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Energy</span>
+                                <span class="stat-label">Efficient</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">IoT</span>
+                                <span class="stat-label">Enabled</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 3: Functional Testing of Siemens OCR -->
+            <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Siemens+OCR" alt="Functional Testing of Siemens OCR">
+                        <span class="project-badge bg-success">Completed</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Functional Testing of Siemens OCR</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>2024</span>
+                            <span><i class="fas fa-map-marker-alt me-2"></i>Protection Lab</span>
+                        </div>
+                        <p class="project-description">
+                            Functional testing using Injection Tester according to IEC standards for overcurrent relay validation.
+                        </p>
+                        <div class="project-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">IEC</span>
+                                <span class="stat-label">Standard</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">OCR</span>
+                                <span class="stat-label">Tested</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">Reliable</span>
+                                <span class="stat-label">Validation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Move Cat Button -->
+    <div class="move-cat" id="moveCat" title="Move to Top">
+        <i class="fas fa-cat"></i>
     </div>
-  </header>
 
-  <!-- Projects Container -->
-  <div class="container py-5">
-    <div class="row" id="projects-container">
-      
-      <!-- Project 1: IoT-Based Powermeter Analysis -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <h5 class="card-title">IoT-Based Powermeter Analysis</h5>
-            <p class="text-muted">2024</p>
-            <p class="card-text">
-              Real-time monitoring of 20kV power house panel with IoT integration. Includes voltage, current, and power analysis via Modbus RS485.
-            </p>
-            <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="btn btn-primary btn-sm">
-              View Live Dashboard
-            </a>
-          </div>
+    <!-- Footer -->
+    <footer class="mt-5 py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 ALKYY Industries (ALKYY-IN). All rights reserved.</p>
+            <p class="mb-0">Electrical Energy Solutions & Professional Cable Installation</p>
         </div>
-      </div>
+    </footer>
 
-      <!-- Project 2: Smart Energy Building -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <h5 class="card-title">Smart Energy Building</h5>
-            <p class="text-muted">2025</p>
-            <p class="card-text">
-              Design of an energy-efficient smart building system with automated control and monitoring.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3: Functional Testing of Siemens OCR -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <h5 class="card-title">Functional Testing of Siemens OCR</h5>
-            <p class="text-muted">2024</p>
-            <p class="card-text">
-              Functional testing using Injection Tester according to IEC standards for overcurrent relay validation.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4: Smart Rectangular Industrial Oven with IoT -->
-      <div class="col-md-6 col-lg-4 mb-4">
-        <div class="card h-100 shadow">
-          <div class="card-body">
-            <h5 class="card-title">Smart Industrial Oven with IoT</h5>
-            <p class="text-muted">2025</p>
-            <p class="card-text">
-              Smart rectangular oven with dual heater, exhaust system, and integrated energy monitoring using REX-C700 PID controller, AT4PW smart breaker, and Raspberry Pi 3 for real-time data visualization.
-            </p>
-            <a href="ovenproject.html" class="btn btn-primary btn-sm">
-              View Project
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">&copy; 2025 Diky Aditia Dwi Saputra</p>
-  </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                projectItems.forEach(item => {
+                    if (category === 'all' || item.getAttribute('data-category') === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        const moveCat = document.getElementById('moveCat');
+        moveCat.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            moveCat.style.animation = 'none';
+            setTimeout(() => {
+                moveCat.style.animation = 'floatCat 3s ease-in-out infinite';
+            }, 10);
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href) {
+                return;
+            }
+            
+            const clickAnimation = document.createElement('div');
+            clickAnimation.className = 'click-animation';
+            clickAnimation.style.left = e.pageX + 'px';
+            clickAnimation.style.top = e.pageY + 'px';
+            document.body.appendChild(clickAnimation);
+            
+            setTimeout(() => {
+                clickAnimation.remove();
+            }, 600);
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
 
