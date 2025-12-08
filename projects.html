@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - ALKYY Industries</title>
+    <title>Diky Aditia - Electrical Engineer</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -20,7 +20,6 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             transition: background-color 0.5s ease, color 0.5s ease;
             min-height: 100vh;
-            padding-top: 70px;
             overflow-x: hidden;
         }
         
@@ -134,156 +133,35 @@
             border-radius: 2px;
         }
         
-        .project-card {
-            border-radius: 20px;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            border: none;
-            margin-bottom: 30px;
-            position: relative;
-        }
-        
-        body.light-theme .project-card {
-            background: white;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
-        }
-        
-        body.dark-theme .project-card {
-            background: rgba(30, 41, 59, 0.6);
-            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-        }
-        
-        .project-card:hover {
-            transform: translateY(-10px);
-        }
-        
-        .project-image {
-            height: 250px;
-            overflow: hidden;
-            position: relative;
-        }
-        
-        .project-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-        
-        .project-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .project-content {
-            padding: 25px;
-        }
-        
-        .project-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 12px;
-        }
-        
-        body.light-theme .project-title {
-            color: var(--alkyy-blue-dark);
-        }
-        
-        body.dark-theme .project-title {
-            color: white;
-        }
-        
-        .project-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            font-size: 0.9rem;
-        }
-        
-        body.light-theme .project-meta {
-            color: #64748b;
-        }
-        
-        body.dark-theme .project-meta {
-            color: #94a3b8;
-        }
-        
-        .project-description {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .project-stats {
-            display: flex;
-            justify-content: space-between;
-            border-top: 1px solid;
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-        
-        body.light-theme .project-stats {
-            border-top-color: #e2e8f0;
-        }
-        
-        body.dark-theme .project-stats {
-            border-top-color: #334155;
-        }
-        
-        .stat-item {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 1.2rem;
-            font-weight: 700;
-            display: block;
-        }
-        
-        body.light-theme .stat-number {
-            color: var(--alkyy-blue-dark);
-        }
-        
-        body.dark-theme .stat-number {
-            color: var(--alkyy-blue);
-        }
-        
-        .stat-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-        
         .hero-section {
-            padding: 80px 0 60px;
+            padding: 120px 0 80px;
             text-align: center;
             margin-bottom: 60px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            color: white;
         }
         
         .hero-title {
             font-size: 2.8rem;
             font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(45deg, var(--alkyy-blue), var(--alkyy-blue-dark));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 15px;
         }
         
         .hero-subtitle {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             max-width: 700px;
             margin: 0 auto;
             opacity: 0.9;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
         }
         
         /* Custom navbar toggler */
@@ -330,6 +208,36 @@
         
         .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
             background: transparent;
+        }
+        
+        /* Card styling */
+        .content-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        body.light-theme .content-card {
+            background: white;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .content-card {
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .content-card .card-body {
+            padding: 30px;
         }
         
         /* Move cat animation */
@@ -398,16 +306,8 @@
                 font-size: 1rem;
             }
             
-            .project-image {
-                height: 200px;
-            }
-            
-            .project-title {
-                font-size: 1.2rem;
-            }
-            
             body {
-                padding-top: 60px;
+                padding-top: 0;
             }
             
             .move-cat {
@@ -426,17 +326,9 @@
                 width: 80px;
             }
             
-            .project-image {
-                height: 180px;
-            }
-            
-            .project-content {
-                padding: 20px;
-            }
-            
-            .project-stats {
-                flex-direction: column;
-                gap: 10px;
+            .profile-img {
+                width: 120px;
+                height: 120px;
             }
             
             .move-cat {
@@ -475,79 +367,21 @@
             border-bottom-color: rgba(0,0,0,0.1);
         }
         
-        /* Category filter */
-        .category-filter {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 40px;
-        }
-        
-        .category-btn {
-            padding: 8px 20px;
-            border-radius: 20px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        body.light-theme .category-btn {
-            background: rgba(37, 99, 235, 0.1);
-            color: var(--alkyy-blue-dark);
-        }
-        
-        body.dark-theme .category-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-        }
-        
-        .category-btn.active,
-        .category-btn:hover {
-            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
-            color: white;
-        }
-        
-        /* Back to menu button - FIXED POSITION BELOW NAVBAR */
-        .back-to-menu {
-            position: fixed;
-            top: 80px;
-            left: 20px;
-            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
-            color: white;
-            border: none;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .contact-link {
+            color: var(--alkyy-blue) !important;
             text-decoration: none;
-            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
-            transition: all 0.3s ease;
-            z-index: 998;
         }
         
-        .back-to-menu:hover {
-            transform: scale(1.1) rotate(5deg);
-            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+        body.dark-theme .contact-link {
+            color: #60a5fa !important;
         }
         
-        /* Adjust for mobile */
-        @media (max-width: 768px) {
-            .back-to-menu {
-                top: 70px;
-            }
+        .contact-link:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body class="dark-theme">
-    <!-- Back to Menu Button -->
-    <a href="index.html" class="back-to-menu" title="Back to Menu">
-        <i class="fas fa-arrow-left"></i>
-    </a>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg">
         <div class="container">
@@ -555,9 +389,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             
-            <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <a class="navbar-brand d-flex align-items-center" href="#">
                 <i class="fas fa-bolt lightning-icon"></i>
-                <span>ALKYY-IN</span>
+                <span>Diky Aditia</span>
             </a>
             
             <button class="theme-toggle-btn" id="themeToggle">
@@ -565,9 +399,10 @@
             </button>
             
             <div class="navbar-nav ms-auto d-none d-lg-flex">
-                <a class="nav-link" href="index.html">Menu</a>
-                <a class="nav-link" href="index.html">About</a>
-                <a class="nav-link" href="index.html">Contact</a>
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#experience">Experience</a>
+                <a class="nav-link" href="projects.html">Projects</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -576,20 +411,23 @@
     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                <i class="fas fa-bolt lightning-icon"></i>ALKYY-IN
+                <i class="fas fa-bolt lightning-icon"></i>Diky Aditia
             </h5>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-bs-dismiss="offcanvas">Menu</a>
+                    <a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-bs-dismiss="offcanvas">About</a>
+                    <a class="nav-link" href="#experience" data-bs-dismiss="offcanvas">Experience</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.html" data-bs-dismiss="offcanvas">Contact</a>
+                    <a class="nav-link" href="projects.html" data-bs-dismiss="offcanvas">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
                 </li>
             </ul>
         </div>
@@ -598,164 +436,91 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <h1 class="hero-title">Our Electrical Energy Projects</h1>
-            <p class="hero-subtitle">Discover our portfolio of successful electrical installations, power systems, and energy solutions that power progress across industries.</p>
+            <img src="profil diky.jpg" alt="Diky Aditia" class="profile-img">
+            <h1 class="hero-title">Diky Aditia Dwi Saputra</h1>
+            <p class="hero-subtitle">Electrical Engineering Graduate • Panel Maker & IoT Integrator</p>
         </div>
     </section>
 
-    <!-- Category Filter -->
-    <div class="container">
-        <div class="category-filter">
-            <button class="category-btn active" data-category="all">All Projects</button>
-            <button class="category-btn" data-category="industrial">Industrial</button>
-            <button class="category-btn" data-category="commercial">Commercial</button>
-            <button class="category-btn" data-category="residential">Residential</button>
-            <button class="category-btn" data-category="renewable">Renewable</button>
+    <!-- About Section -->
+    <section id="about" class="container py-5">
+        <h2 class="section-title">About Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="content-card">
+                    <div class="card-body">
+                        <p>
+                            A fresh graduate in <strong>Electrical Engineering</strong> from Politeknik Negeri Madiun (IPK: 3.45/4.00, <em>Very Good</em>) with hands-on experience in:
+                        </p>
+                        <ul class="mt-2">
+                            <li>Panel maker for LV & MV systems (up to 20kV)</li>
+                            <li>Installation & maintenance of IoT modules in electrical panels</li>
+                            <li>PLC & SCADA, grounding systems, and Modbus RS485 communication</li>
+                            <li>Compliance with SNI, IEC, and SPLN standards</li>
+                        </ul>
+                        <p class="mt-3">
+                            Actively participated in 10+ campus events (competitions, webinars, workshops). Seeking opportunities to grow as a professional in the electrical engineering field.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <!-- Projects Grid -->
-    <section class="container">
-        <div class="row" id="projectsContainer">
-
-            <!-- Smart Industrial Oven with IoT -->
-            <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="FOTO1.jpg" alt="Smart Industrial Oven with IoT">
-                        <span class="project-badge bg-success">Completed</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Smart Industrial Oven with IoT</h3>
-                        <div class="project-meta">
-                            <span><i class="fas fa-calendar me-2"></i>2025</span>
-                            <span><i class="fas fa-map-marker-alt me-2"></i>Laboratory</span>
-                        </div>
-                        <p class="project-description">
-                            Smart  oven with dual heater, exhaust system, and integrated energy monitoring using REX-C700 PID controller, AT4PW smart breaker, and Raspberry Pi 3 for real-time data visualization and remote monitoring.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">Dual</span>
-                                <span class="stat-label">Heaters</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">IoT</span>
-                                <span class="stat-label">Integrated</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">Smart</span>
-                                <span class="stat-label">Monitoring</span>
-                            </div>
-                        </div>
-                        <a href="ovenproject.html" class="btn btn-primary btn-sm w-100 mt-3">View Project</a>
+    <!-- Experience Section -->
+    <section id="experience" class="container py-5">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="content-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Electrical Engineering Intern</h3>
+                        <p class="text-muted">PT. BIMA ENERGI PRATAMA, Surabaya<br>Jan 2024 – Jul 2024</p>
+                        <ul>
+                            <li>Panel maker for 20kV systems</li>
+                            <li>Repair and reinstallation of PLC</li>
+                            <li>Analysis & installation of power meters, OCR, and IoT modules</li>
+                            <li>Prepared project letters and budget plans</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-
-            <!-- Project 1: IoT-Based Powermeter Analysis -->
-            <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=IoT+Powermeter" alt="IoT-Based Powermeter Analysis">
-                        <span class="project-badge bg-success">Completed</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">IoT-Based Powermeter Analysis</h3>
-                        <div class="project-meta">
-                            <span><i class="fas fa-calendar me-2"></i>2024</span>
-                            <span><i class="fas fa-map-marker-alt me-2"></i>Power House</span>
-                        </div>
-                        <p class="project-description">
-                            Real-time monitoring of 20kV power house panel with IoT integration. Includes voltage, current, and power analysis via Modbus RS485.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">20 kV</span>
-                                <span class="stat-label">Voltage Level</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">RS485</span>
-                                <span class="stat-label">Protocol</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">Live</span>
-                                <span class="stat-label">Dashboard</span>
-                            </div>
-                        </div>
-                        <a href="https://monitoring-iottm.my.id/dashboard.php" target="_blank" class="btn btn-primary btn-sm w-100 mt-3">View Live Dashboard</a>
+            <div class="col-md-6 mb-4">
+                <div class="content-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Part Time Electrical Designer</h3>
+                        <p class="text-muted">MJM GROUP, Ponorogo<br>Aug 2025 – Present</p>
+                        <ul>
+                            <li>Electrical design & building plans using AutoCAD</li>
+                            <li>Installation of electrical circuits</li>
+                            <li>Making lightning rods</li>
+                        </ul>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Project 2: Smart Energy Building -->
-            <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Smart+Building" alt="Smart Energy Building">
-                        <span class="project-badge bg-warning text-dark">In Progress</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Smart Energy Building</h3>
-                        <div class="project-meta">
-                            <span><i class="fas fa-calendar me-2"></i>2025</span>
-                            <span><i class="fas fa-map-marker-alt me-2"></i>Commercial</span>
-                        </div>
-                        <p class="project-description">
-                            Design of an energy-efficient smart building system with automated control and monitoring.
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="content-card">
+                    <div class="card-body text-center">
+                        <p><i class="fas fa-phone me-2"></i> 0857-3683-2293</p>
+                        <p>
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:dikyaditya5555@gmail.com" class="contact-link">dikyaditya5555@gmail.com</a>
                         </p>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">Auto</span>
-                                <span class="stat-label">Control</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">Energy</span>
-                                <span class="stat-label">Efficient</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">IoT</span>
-                                <span class="stat-label">Enabled</span>
-                            </div>
-                        </div>
+                        <p>
+                            <i class="fab fa-linkedin me-2"></i>
+                            <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank" class="contact-link">linkedin.com/in/diky-adit-3144722b2</a>
+                        </p>
+                        <p class="mt-2"><i class="fas fa-map-marker-alt me-2"></i> Ngawi, Indonesia</p>
                     </div>
                 </div>
             </div>
-
-            <!-- Project 3: Functional Testing of Siemens OCR -->
-            <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Siemens+OCR" alt="Functional Testing of Siemens OCR">
-                        <span class="project-badge bg-success">Completed</span>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Functional Testing of Siemens OCR</h3>
-                        <div class="project-meta">
-                            <span><i class="fas fa-calendar me-2"></i>2024</span>
-                            <span><i class="fas fa-map-marker-alt me-2"></i>Protection Lab</span>
-                        </div>
-                        <p class="project-description">
-                            Functional testing using Injection Tester according to IEC standards for overcurrent relay validation.
-                        </p>
-                        <div class="project-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">IEC</span>
-                                <span class="stat-label">Standard</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">OCR</span>
-                                <span class="stat-label">Tested</span>
-                            </div>
-                            <div class="stat-item">
-                                <span class="stat-number">Reliable</span>
-                                <span class="stat-label">Validation</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -767,8 +532,7 @@
     <!-- Footer -->
     <footer class="mt-5 py-4">
         <div class="container text-center">
-            <p class="mb-0">&copy; 2025 ALKYY Industries (ALKYY-IN). All rights reserved.</p>
-            <p class="mb-0">Electrical Energy Solutions & Professional Cable Installation</p>
+            <p class="mb-0">&copy; 2025 Diky Aditia Dwi Saputra</p>
         </div>
     </footer>
 
@@ -800,26 +564,6 @@
                 icon.classList.add('fa-moon');
                 localStorage.setItem('theme', 'dark');
             }
-        });
-        
-        const categoryButtons = document.querySelectorAll('.category-btn');
-        const projectItems = document.querySelectorAll('.project-item');
-        
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                categoryButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                const category = button.getAttribute('data-category');
-                
-                projectItems.forEach(item => {
-                    if (category === 'all' || item.getAttribute('data-category') === category) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
         });
         
         const moveCat = document.getElementById('moveCat');
