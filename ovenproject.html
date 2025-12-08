@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Laporan Proyek IoT - Smart Industrial Oven</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+    }
+    .hero-section {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 4rem 0;
+    }
+    .section-title {
+      position: relative;
+      margin-bottom: 2.5rem;
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #2a5298;
+    }
+    .feature-icon {
+      font-size: 2rem;
+      color: #2a5298;
+    }
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container text-center">
+      <h1 class="display-4 fw-bold">Smart Rectangular Oven with IoT</h1>
+      <p class="lead">Sistem Oven Industri Cerdas Berbasis IoT dengan Monitoring Energi & Kontrol Suhu Presisi</p>
+    </div>
+  </section>
+
+  <!-- Project Overview -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title">Deskripsi Proyek</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4">
+          <img src="oven1.png" alt="Smart Industrial Oven" class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+          <p>
+            Sistem oven berbentuk persegi panjang ini dirancang untuk aplikasi industri dan laboratorium yang membutuhkan kontrol suhu presisi, keamanan tinggi, serta pemantauan konsumsi energi secara real-time.
+          </p>
+          <p>
+            Proyek ini menggabungkan perangkat keras industri (seperti REX-C700 PID Controller, kontaktor, dan timer elektromekanik) dengan teknologi IoT berbasis <strong>Raspberry Pi 3</strong> untuk visualisasi dan remote monitoring.
+          </p>
+          <p>
+            Fitur utama meliputi: dual heater, blower sirkulasi udara, exhaust fan, sistem keamanan berlapis, dan smart energy metering melalui <strong>AT4PW 100A WIFI Smart Breaker</strong>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sistem Komponen -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Komponen Utama Sistem</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card h-100 p-4 text-center">
+            <div class="feature-icon mb-3">🔥</div>
+            <h5>2 Unit Heater</h5>
+            <p>Pemanas utama dikontrol secara independen untuk distribusi suhu optimal dan efisiensi energi.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 text-center">
+            <div class="feature-icon mb-3">🌡️</div>
+            <h5>REX-C700 PID Controller</h5>
+            <p>Pengatur suhu presisi berbasis algoritma PID dengan sensor PT100/Thermocouple.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 text-center">
+            <div class="feature-icon mb-3">📶</div>
+            <h5>IoT & Raspberry Pi 3</h5>
+            <p>Visualisasi data real-time dan antarmuka web untuk monitoring jarak jauh.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 text-center">
+            <div class="feature-icon mb-3">⚡</div>
+            <h5>AT4PW Smart Breaker</h5>
+            <p>Mengukur kWh, tegangan, arus, faktor daya (PF), dan frekuensi via Wi-Fi.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 text-center">
+            <div class="feature-icon mb-3">🌀</div>
+            <h5>Blower & Exhaust Fan</h5>
+            <p>Sirkulasi udara dan ventilasi otomatis untuk homogenitas suhu dan pendinginan cepat.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 p-4 text-center">
+            <div class="feature-icon mb-3">⏱️</div>
+            <h5>Timer Elektromekanik</h5>
+            <p>Sistem keamanan tambahan: mematikan oven otomatis setelah waktu habis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Demo -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <h2 class="section-title">Demo Sistem (YouTube Shorts)</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/zgjAPKCzdeM" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Keamanan Sistem -->
+  <section class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Fitur Keamanan</h2>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item d-flex">
+          <span class="badge bg-primary me-3">1</span>
+          Proteksi arus lebih & short circuit via MCB utama dan cabang.
+        </li>
+        <li class="list-group-item d-flex">
+          <span class="badge bg-primary me-3">2</span>
+          Timer sebagai cut-off waktu otomatis — mencegah pemanasan berlebih.
+        </li>
+        <li class="list-group-item d-flex">
+          <span class="badge bg-primary me-3">3</span>
+          Kontak NC pada kontaktor memastikan sistem mati saat timer nonaktif.
+        </li>
+        <li class="list-group-item d-flex">
+          <span class="badge bg-primary me-3">4</span>
+          Smart breaker mendeteksi beban abnormal (overcurrent, low PF).
+        </li>
+        <li class="list-group-item d-flex">
+          <span class="badge bg-primary me-3">5</span>
+          Switch manual untuk pemadaman darurat tanpa ketergantungan sistem digital.
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Penutup -->
+  <section class="py-5 bg-white">
+    <div class="container text-center">
+      <h2 class="section-title">Kesimpulan</h2>
+      <p class="lead">
+        Proyek ini berhasil mengintegrasikan keandalan kontrol industri dengan kemampuan pemantauan modern berbasis IoT.
+        Desain wiring memprioritaskan keselamatan, redundansi, dan kemudahan perawatan, sementara Raspberry Pi memungkinkan
+        pencatatan historis konsumsi energi — sangat berguna untuk audit efisiensi dan optimasi proses.
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-dark text-white py-4">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2025 Proyek IoT - Smart Industrial Oven. Semua hak dilindungi.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
