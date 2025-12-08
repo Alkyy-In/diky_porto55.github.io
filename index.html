@@ -1,226 +1,613 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Diky Aditia - Electrical Engineer</title>
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffffff;
-      color: #333;
-    }
-    .sidebar {
-      background: linear-gradient(180deg, #2563eb, #1d4ed8);
-      color: white;
-      width: 250px;
-      height: 100vh;
-      position: fixed;
-      top: 0;
-      left: -250px;
-      transition: left 0.3s ease;
-      z-index: 1050;
-      padding: 20px;
-    }
-    .sidebar.show {
-      left: 0;
-    }
-    .overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.5);
-      z-index: 1040;
-    }
-    .overlay.show {
-      display: block;
-    }
-    .hero {
-      background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-      color: white;
-      padding: 80px 0;
-    }
-    .card {
-      transition: transform 0.3s;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-    }
-    .dark-mode {
-      background-color: #0f172a !important;
-      color: #e2e8f0 !important;
-    }
-    .dark-mode .card {
-      background: #1e293b !important;
-      color: #e2e8f0 !important;
-    }
-    .dark-mode .card a {
-      color: #60a5fa !important;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diky Aditia - Electrical Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --alkyy-blue: #2563eb;
+            --alkyy-blue-dark: #1d4ed8;
+            --alkyy-light-bg: #f8fafc;
+            --alkyy-dark-bg: #0f172a;
+            --alkyy-light-text: #0f172a;
+            --alkyy-dark-text: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        body.light-theme {
+            background-color: var(--alkyy-light-bg);
+            color: var(--alkyy-light-text);
+        }
+        
+        body.dark-theme {
+            background-color: var(--alkyy-dark-bg);
+            color: var(--alkyy-dark-text);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.light-theme .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .navbar {
+            background-color: var(--alkyy-dark-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lightning-icon {
+            transition: transform 0.2s ease;
+            animation: pulseLightning 2s infinite;
+        }
+        
+        .lightning-icon:hover {
+            animation: shakeLightning 0.5s ease-in-out;
+        }
+        
+        @keyframes pulseLightning {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes shakeLightning {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-3px) rotate(-5deg); }
+            50% { transform: translateX(3px) rotate(5deg); }
+            75% { transform: translateX(-3px) rotate(-5deg); }
+        }
+        
+        body.light-theme .navbar-brand,
+        body.light-theme .nav-link {
+            color: var(--alkyy-blue-dark) !important;
+        }
+        
+        body.dark-theme .navbar-brand,
+        body.dark-theme .nav-link {
+            color: white !important;
+        }
+        
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-theme .theme-toggle-btn {
+            color: var(--alkyy-blue-dark);
+            background: rgba(29, 78, 216, 0.1);
+        }
+        
+        body.dark-theme .theme-toggle-btn {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-toggle-btn:hover {
+            transform: rotate(30deg);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            border-radius: 2px;
+        }
+        
+        .hero-section {
+            padding: 120px 0 80px;
+            text-align: center;
+            margin-bottom: 60px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            color: white;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Custom navbar toggler */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            position: relative;
+        }
+        
+        .navbar-toggler-icon {
+            background: none;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            display: block;
+        }
+        
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler-icon::before {
+            top: 0;
+        }
+        
+        .navbar-toggler-icon::after {
+            bottom: 0;
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+            background: transparent;
+        }
+        
+        /* Card styling */
+        .content-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        body.light-theme .content-card {
+            background: white;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .content-card {
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .content-card .card-body {
+            padding: 30px;
+        }
+        
+        /* Move cat animation */
+        .move-cat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            animation: floatCat 3s ease-in-out infinite;
+        }
+        
+        .move-cat:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+        }
+        
+        @keyframes floatCat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Click animation */
+        .click-animation {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--alkyy-blue);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: clickRipple 0.6s ease-out;
+        }
+        
+        @keyframes clickRipple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.7;
+            }
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            body {
+                padding-top: 0;
+            }
+            
+            .move-cat {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-title::after {
+                width: 80px;
+            }
+            
+            .profile-img {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .move-cat {
+                width: 45px;
+                height: 45px;
+                font-size: 0.9rem;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        
+        /* Offcanvas styling */
+        body.light-theme .offcanvas {
+            background-color: white;
+            color: var(--alkyy-light-text);
+        }
+        
+        body.dark-theme .offcanvas {
+            background-color: var(--alkyy-dark-bg);
+            color: var(--alkyy-dark-text);
+        }
+        
+        body.light-theme .offcanvas .nav-link {
+            color: var(--alkyy-blue-dark) !important;
+        }
+        
+        body.dark-theme .offcanvas .nav-link {
+            color: white !important;
+        }
+        
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        body.light-theme .offcanvas-header {
+            border-bottom-color: rgba(0,0,0,0.1);
+        }
+        
+        .contact-link {
+            color: var(--alkyy-blue) !important;
+            text-decoration: none;
+        }
+        
+        body.dark-theme .contact-link {
+            color: #60a5fa !important;
+        }
+        
+        .contact-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body>
+<body class="dark-theme">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <i class="fas fa-bolt lightning-icon"></i>
+                <span>Diky Aditia</span>
+            </a>
+            
+            <button class="theme-toggle-btn" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <div class="navbar-nav ms-auto d-none d-lg-flex">
+                <a class="nav-link" href="#about">About</a>
+                <a class="nav-link" href="#experience">Experience</a>
+                <a class="nav-link" href="projects.html">Projects</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Overlay for Sidebar -->
-  <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
-
-  <!-- Sidebar Menu -->
-  <div class="sidebar" id="sidebar">
-    <h4 class="mb-4">Diky Aditia</h4>
-    <ul class="nav flex-column">
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" href="#about">
-          <i class="fas fa-user me-2"></i> About
-        </a>
-      </li>
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" href="#experience">
-          <i class="fas fa-briefcase me-2"></i> Experience
-        </a>
-      </li>
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" href="projects.html">
-          <i class="fas fa-project-diagram me-2"></i> Projects
-        </a>
-      </li>
-      <li class="nav-item mb-2">
-        <a class="nav-link text-white" href="#contact">
-          <i class="fas fa-envelope me-2"></i> Contact
-        </a>
-      </li>
-    </ul>
-    <button class="btn btn-light mt-4 w-100" onclick="toggleDarkMode()">
-      <i class="fas fa-moon"></i> Toggle Dark Mode
-    </button>
-  </div>
-
-  <!-- Toggle Button (Top Left) -->
-  <button class="btn btn-primary position-fixed top-3 start-3 z-3" onclick="openSidebar()">
-    <i class="fas fa-bars"></i>
-  </button>
-
-  <!-- Hero -->
-  <header class="hero">
-    <div class="container text-center py-5">
-      <img src="profil diky.jpg" alt="Diky Aditia" class="rounded-circle mb-4" width="120" height="120" style="object-fit: cover; border: 3px solid white;">
-      <h1 class="display-5 fw-bold">Diky Aditia Dwi Saputra</h1>
-      <p class="lead">Electrical Engineering Graduate • Panel Maker & IoT Integrator</p>
-    </div>
-  </header>
-
-  <!-- About -->
-  <section id="about" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4 text-primary">About Me</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-8">
-          <div class="card p-4 shadow">
-            <p>
-              A fresh graduate in <strong>Electrical Engineering</strong> from Politeknik Negeri Madiun (IPK: 3.45/4.00, <em>Very Good</em>) with hands-on experience in:
-            </p>
-            <ul class="mt-2">
-              <li>Panel maker for LV & MV systems (up to 20kV)</li>
-              <li>Installation & maintenance of IoT modules in electrical panels</li>
-              <li>PLC & SCADA, grounding systems, and Modbus RS485 communication</li>
-              <li>Compliance with SNI, IEC, and SPLN standards</li>
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <i class="fas fa-bolt lightning-icon"></i>Diky Aditia
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about" data-bs-dismiss="offcanvas">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#experience" data-bs-dismiss="offcanvas">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html" data-bs-dismiss="offcanvas">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
+                </li>
             </ul>
-            <p class="mt-3">
-              Actively participated in 10+ campus events (competitions, webinars, workshops). Seeking opportunities to grow as a professional in the electrical engineering field.
-            </p>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
 
-  <!-- Experience -->
-  <section id="experience" class="py-5 bg-light">
-    <div class="container">
-      <h2 class="text-center mb-4 text-primary">Work Experience</h2>
-      <div class="row">
-        <div class="col-md-6 mb-4">
-          <div class="card p-4 h-100 shadow">
-            <h5>Electrical Engineering Intern</h5>
-            <p class="text-muted">PT. BIMA ENERGI PRATAMA, Surabaya<br>Jan 2024 – Jul 2024</p>
-            <ul>
-              <li>Panel maker for 20kV systems</li>
-              <li>Repair and reinstallation of PLC</li>
-              <li>Analysis & installation of power meters, OCR, and IoT modules</li>
-              <li>Prepared project letters and budget plans</li>
-            </ul>
-          </div>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <img src="profil diky.jpg" alt="Diky Aditia" class="profile-img">
+            <h1 class="hero-title">Diky Aditia Dwi Saputra</h1>
+            <p class="hero-subtitle">Electrical Engineering Graduate • Panel Maker & IoT Integrator</p>
         </div>
-        <div class="col-md-6 mb-4">
-          <div class="card p-4 h-100 shadow">
-            <h5>Part Time Electrical Designer</h5>
-            <p class="text-muted">MJM GROUP, Ponorogo<br>Aug 2025 – Present</p>
-            <ul>
-              <li>Electrical design & building plans using AutoCAD</li>
-              <li>Installation of electrical circuits</li>
-              <li>Making lightning rods</li>
-            </ul>
-          </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="container py-5">
+        <h2 class="section-title">About Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="content-card">
+                    <div class="card-body">
+                        <p>
+                            A fresh graduate in <strong>Electrical Engineering</strong> from Politeknik Negeri Madiun (IPK: 3.45/4.00, <em>Very Good</em>) with hands-on experience in:
+                        </p>
+                        <ul class="mt-2">
+                            <li>Panel maker for LV & MV systems (up to 20kV)</li>
+                            <li>Installation & maintenance of IoT modules in electrical panels</li>
+                            <li>PLC & SCADA, grounding systems, and Modbus RS485 communication</li>
+                            <li>Compliance with SNI, IEC, and SPLN standards</li>
+                        </ul>
+                        <p class="mt-3">
+                            Actively participated in 10+ campus events (competitions, webinars, workshops). Seeking opportunities to grow as a professional in the electrical engineering field.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="container py-5">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="content-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Electrical Engineering Intern</h3>
+                        <p class="text-muted">PT. BIMA ENERGI PRATAMA, Surabaya<br>Jan 2024 – Jul 2024</p>
+                        <ul>
+                            <li>Panel maker for 20kV systems</li>
+                            <li>Repair and reinstallation of PLC</li>
+                            <li>Analysis & installation of power meters, OCR, and IoT modules</li>
+                            <li>Prepared project letters and budget plans</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="content-card">
+                    <div class="card-body">
+                        <h3 class="card-title">Part Time Electrical Designer</h3>
+                        <p class="text-muted">MJM GROUP, Ponorogo<br>Aug 2025 – Present</p>
+                        <ul>
+                            <li>Electrical design & building plans using AutoCAD</li>
+                            <li>Installation of electrical circuits</li>
+                            <li>Making lightning rods</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="container py-5">
+        <h2 class="section-title">Contact Me</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="content-card">
+                    <div class="card-body text-center">
+                        <p><i class="fas fa-phone me-2"></i> 0857-3683-2293</p>
+                        <p>
+                            <i class="fas fa-envelope me-2"></i>
+                            <a href="mailto:dikyaditya5555@gmail.com" class="contact-link">dikyaditya5555@gmail.com</a>
+                        </p>
+                        <p>
+                            <i class="fab fa-linkedin me-2"></i>
+                            <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank" class="contact-link">linkedin.com/in/diky-adit-3144722b2</a>
+                        </p>
+                        <p class="mt-2"><i class="fas fa-map-marker-alt me-2"></i> Ngawi, Indonesia</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Move Cat Button -->
+    <div class="move-cat" id="moveCat" title="Move to Top">
+        <i class="fas fa-cat"></i>
     </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4 text-primary">Contact Me</h2>
-      <div class="row justify-content-center">
-        <div class="col-lg-6">
-          <div class="card p-4 shadow text-center">
-            <p><i class="fas fa-phone me-2 text-primary"></i> 0857-3683-2293</p>
-            <p><i class="fas fa-envelope me-2 text-primary"></i> 
-              <a href="mailto:dikyaditya5555@gmail.com">dikyaditya5555@gmail.com</a>
-            </p>
-            <p><i class="fab fa-linkedin me-2 text-primary"></i> 
-              <a href="https://www.linkedin.com/in/diky-adit-3144722b2/" target="_blank">linkedin.com/in/diky-adit-3144722b2</a>
-            </p>
-            <p class="mt-2"><i class="fas fa-map-marker-alt me-2 text-primary"></i> Ngawi, Indonesia</p>
-          </div>
+    <!-- Footer -->
+    <footer class="mt-5 py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Diky Aditia Dwi Saputra</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-  <!-- Footer -->
-  <footer class="bg-dark text-white text-center py-3">
-    <p class="mb-0">&copy; 2025 Diky Aditia Dwi Saputra</p>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    // Sidebar Toggle
-    function openSidebar() {
-      document.getElementById('sidebar').classList.add('show');
-      document.getElementById('overlay').classList.add('show');
-    }
-    function closeSidebar() {
-      document.getElementById('sidebar').classList.remove('show');
-      document.getElementById('overlay').classList.remove('show');
-    }
-
-    // Dark Mode
-    function toggleDarkMode() {
-      document.body.classList.toggle('dark-mode');
-      localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    }
-    if (localStorage.getItem('darkMode') === 'true') {
-      document.body.classList.add('dark-mode');
-    }
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        const moveCat = document.getElementById('moveCat');
+        moveCat.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            moveCat.style.animation = 'none';
+            setTimeout(() => {
+                moveCat.style.animation = 'floatCat 3s ease-in-out infinite';
+            }, 10);
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href) {
+                return;
+            }
+            
+            const clickAnimation = document.createElement('div');
+            clickAnimation.className = 'click-animation';
+            clickAnimation.style.left = e.pageX + 'px';
+            clickAnimation.style.top = e.pageY + 'px';
+            document.body.appendChild(clickAnimation);
+            
+            setTimeout(() => {
+                clickAnimation.remove();
+            }, 600);
+        });
+        
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
+
