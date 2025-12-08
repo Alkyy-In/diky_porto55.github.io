@@ -154,14 +154,27 @@
             opacity: 0.9;
         }
         
-        .profile-img {
-            width: 150px;
-            height: 150px;
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+        
+        .profile-img, .project-img {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 4px solid white;
             object-fit: cover;
-            margin-bottom: 20px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+        }
+        
+        .project-img {
+            width: 100px;
+            height: 100px;
         }
         
         /* Custom navbar toggler */
@@ -274,6 +287,17 @@
                 height: 50px;
                 font-size: 1rem;
             }
+            .profile-container {
+                gap: 15px;
+            }
+            .profile-img {
+                width: 110px;
+                height: 110px;
+            }
+            .project-img {
+                width: 90px;
+                height: 90px;
+            }
         }
         
         @media (max-width: 480px) {
@@ -284,8 +308,12 @@
                 width: 80px;
             }
             .profile-img {
-                width: 120px;
-                height: 120px;
+                width: 100px;
+                height: 100px;
+            }
+            .project-img {
+                width: 80px;
+                height: 80px;
             }
             .move-cat {
                 width: 45px;
@@ -358,7 +386,7 @@
             
             <a class="navbar-brand d-flex align-items-center" href="#">
                 <i class="fas fa-bolt lightning-icon"></i>
-                <span>Diky Aditia</span>
+                <span>My Profile</span>
             </a>
             
             <button class="theme-toggle-btn" id="themeToggle">
@@ -369,6 +397,7 @@
                 <a class="nav-link" href="#about">About</a>
                 <a class="nav-link" href="#experience">Experience</a>
                 <a class="nav-link" href="projects.html">Projects</a>
+                <a class="nav-link" href="certificate.html">Certificate</a>
                 <a class="nav-link" href="#contact">Contact</a>
             </div>
         </div>
@@ -393,8 +422,10 @@
                     <a class="nav-link" href="#experience" data-bs-dismiss="offcanvas">Experience</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="https://alkyy-in.github.io/diky_porto55.github.io/projects.html">Projects
-                </a>
+                    <a class="nav-link" href="projects.html">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="certificate.html">Certificate</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
@@ -406,7 +437,11 @@
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
-            <img src="profil diky.jpg" alt="Diky Aditia" class="profile-img">
+            <div class="profile-container">
+                <img src="fotoproyek1.jpg" alt="Project 1" class="project-img">
+                <img src="profil diky.jpg" alt="Diky Aditia" class="profile-img">
+                <img src="fotoproyek2.jpg" alt="Project 2" class="project-img">
+            </div>
             <h1 class="hero-title">Diky Aditia Dwi Saputra</h1>
             <p class="hero-subtitle">Diploma III Electrical Engineering • Panel Maker & IoT Integrator</p>
         </div>
@@ -565,8 +600,7 @@
             }, 600);
         });
 
-        // Fix: Allow normal navigation for external/internal links (like projects.html)
-        // DO NOT prevent default on non-hash links
+        // Fix: Allow normal navigation for external/internal links (like projects.html, certificate.html)
         document.querySelectorAll('a').forEach(anchor => {
             const href = anchor.getAttribute('href');
             if (href && href.startsWith('#')) {
@@ -578,13 +612,11 @@
                             behavior: 'smooth',
                             block: 'start'
                         });
-                        // Close offcanvas if open
                         const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasNavbar'));
                         if (offcanvas) offcanvas.hide();
                     }
                 });
             }
-            // All other links (e.g., projects.html) work normally ✅
         });
     </script>
 </body>
