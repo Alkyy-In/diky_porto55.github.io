@@ -505,6 +505,12 @@
                 top: 70px;
             }
         }
+
+        /* Custom badge colors */
+        .bg-purple {
+            background-color: #8b5cf6 !important;
+            color: white !important;
+        }
     </style>
 </head>
 <body class="dark-theme">
@@ -574,15 +580,15 @@
     <section class="container">
         <div class="row" id="certificatesContainer">
 
-            <!-- Certificate 1: Organisational Experience -->
+            <!-- Certificate 1: organization Experience -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="gambars1.jpg" alt="Organisational Experience Certificate">
+                        <img src="gambars1.jpg" alt="organization Experience Certificate">
                         <span class="project-badge bg-info">Leadership</span>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Organisational Experience</h3>
+                        <h3 class="project-title">organization Experience</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-calendar me-2"></i>Jul 2024 – Jul 2025</span>
                             <span><i class="fas fa-university me-2"></i>PNM</span>
@@ -592,10 +598,9 @@
                         </p>
                     </div>
                 </div>
-            </ul>
             </div>
 
-            <!-- Certificate 2: Internship at PT. BIMA ENERGI PRATAMA -->
+            <!-- Certificate 2: Internship -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
                     <div class="project-image">
@@ -615,7 +620,7 @@
                 </div>
             </div>
 
-            <!-- Certificate 3: InnoWorks 2025 Participant -->
+            <!-- Certificate 3: InnoWorks 2025 -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
                     <div class="project-image">
@@ -635,7 +640,7 @@
                 </div>
             </div>
 
-            <!-- Certificate 4: English Proficiency Test -->
+            <!-- Certificate 4: English Proficiency -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
                     <div class="project-image">
@@ -655,7 +660,7 @@
                 </div>
             </div>
 
-            <!-- Certificate 5: WISE-IoT Certified (Core Level I) -->
+            <!-- Certificate 5: WISE-IoT -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
                     <div class="project-image">
@@ -663,7 +668,7 @@
                         <span class="project-badge bg-purple">IoT</span>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">WISE-IoT Certified: Core Level I & II</h3>
+                        <h3 class="project-title">WISE-IoT Certified: Core Level I</h3>
                         <div class="project-meta">
                             <span><i class="fas fa-calendar me-2"></i>Sep 2, 2024</span>
                             <span><i class="fas fa-microchip me-2"></i>Advantech</span>
@@ -675,7 +680,7 @@
                 </div>
             </div>
 
-            <!-- Certificate 6: Competency Certificate - Medium Voltage -->
+            <!-- Certificate 6: Medium Voltage Competency -->
             <div class="col-lg-4 col-md-6 mb-4">
                 <div class="project-card">
                     <div class="project-image">
@@ -690,6 +695,26 @@
                         </div>
                         <p class="project-description">
                             Certified as Team Leader for Medium Voltage Utilization Installation. Competent in coordinating construction and installation of MV systems (qualification level 3). Valid for 3 years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 7: SMK Competency Assessment -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars7.png" alt="SMK Competency Certificate">
+                        <span class="project-badge bg-secondary">Vocational</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Competency Assessment Certificate</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Apr 25, 2022</span>
+                            <span><i class="fas fa-school me-2"></i>SMK Wonoasri</span>
+                        </div>
+                        <p class="project-description">
+                            Certified as <strong>Highly Competent</strong> in <em>Three Phase Power Installation and PLC Based Control Installation</em> under the Electrical Power Installation Engineering competency. Valid for 3 years.
                         </p>
                     </div>
                 </div>
@@ -769,7 +794,6 @@
             }, 600);
         });
 
-        // Allow normal navigation for non-hash links
         document.querySelectorAll('a').forEach(anchor => {
             const href = anchor.getAttribute('href');
             if (href && href.startsWith('#')) {
