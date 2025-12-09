@@ -509,7 +509,7 @@
             color: white;
         }
         
-        /* Back to menu button - FIXED POSITION BELOW NAVBAR */
+        /* Back to menu button */
         .back-to-menu {
             position: fixed;
             top: 80px;
@@ -534,7 +534,6 @@
             box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
         }
         
-        /* Adjust for mobile */
         @media (max-width: 768px) {
             .back-to-menu {
                 top: 70px;
@@ -552,7 +551,7 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                <span class="navbar-toggler-icon"></span>
+                <i class="fas fa-bars"></i>
             </button>
             
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -578,7 +577,9 @@
             <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
                 <i class="fas fa-bolt lightning-icon"></i>ALKYY-IN
             </h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            <button type="button" class="btn p-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span class="custom-close" style="font-size:1.25rem;color:currentColor;opacity:0.8">&times;</span>
+            </button>
         </div>
         <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1">
@@ -632,7 +633,7 @@
                             <span><i class="fas fa-map-marker-alt me-2"></i>Laboratory</span>
                         </div>
                         <p class="project-description">
-                            Smart  oven with dual heater, exhaust system, and integrated energy monitoring using REX-C700 PID controller, AT4PW smart breaker, and Raspberry Pi 3 for real-time data visualization and remote monitoring.
+                            Smart oven with dual heater, exhaust system, and integrated energy monitoring using REX-C700 PID controller, AT4PW smart breaker, and Raspberry Pi 3 for real-time data visualization and remote monitoring.
                         </p>
                         <div class="project-stats">
                             <div class="stat-item">
@@ -657,7 +658,7 @@
             <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://placehold.co/600x400/2563eb/ffffff?text=IoT+Powermeter" alt="IoT-Based Powermeter Analysis">
+                        <img src="fotoproyek2.jpg" alt="IoT-Based Powermeter Analysis">
                         <span class="project-badge bg-success">Completed</span>
                     </div>
                     <div class="project-content">
@@ -692,7 +693,7 @@
             <div class="col-lg-4 col-md-6 project-item" data-category="commercial">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://placehold.co/600x400/1d4ed8/ffffff?text=Smart+Building" alt="Smart Energy Building">
+                        <img src="smartenergy.jpg" alt="Smart Energy Building">
                         <span class="project-badge bg-warning text-dark">In Progress</span>
                     </div>
                     <div class="project-content">
@@ -726,7 +727,7 @@
             <div class="col-lg-4 col-md-6 project-item" data-category="industrial">
                 <div class="project-card">
                     <div class="project-image">
-                        <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Siemens+OCR" alt="Functional Testing of Siemens OCR">
+                        <img src="magang1.jpg" alt="Functional Testing of Siemens OCR">
                         <span class="project-badge bg-success">Completed</span>
                     </div>
                     <div class="project-content">
