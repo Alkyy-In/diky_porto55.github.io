@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificates - Diky Aditia</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --alkyy-blue: #2563eb;
+            --alkyy-blue-dark: #1d4ed8;
+            --alkyy-light-bg: #f8fafc;
+            --alkyy-dark-bg: #0f172a;
+            --alkyy-light-text: #0f172a;
+            --alkyy-dark-text: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            min-height: 100vh;
+            padding-top: 70px;
+            overflow-x: hidden;
+        }
+        
+        body.light-theme {
+            background-color: var(--alkyy-light-bg);
+            color: var(--alkyy-light-text);
+        }
+        
+        body.dark-theme {
+            background-color: var(--alkyy-dark-bg);
+            color: var(--alkyy-dark-text);
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body.light-theme .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .navbar {
+            background-color: var(--alkyy-dark-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .lightning-icon {
+            transition: transform 0.2s ease;
+            animation: pulseLightning 2s infinite;
+        }
+        
+        .lightning-icon:hover {
+            animation: shakeLightning 0.5s ease-in-out;
+        }
+        
+        @keyframes pulseLightning {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes shakeLightning {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            25% { transform: translateX(-3px) rotate(-5deg); }
+            50% { transform: translateX(3px) rotate(5deg); }
+            75% { transform: translateX(-3px) rotate(-5deg); }
+        }
+        
+        body.light-theme .navbar-brand,
+        body.light-theme .nav-link {
+            color: var(--alkyy-blue-dark) !important;
+        }
+        
+        body.dark-theme .navbar-brand,
+        body.dark-theme .nav-link {
+            color: white !important;
+        }
+        
+        .theme-toggle-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        body.light-theme .theme-toggle-btn {
+            color: var(--alkyy-blue-dark);
+            background: rgba(29, 78, 216, 0.1);
+        }
+        
+        body.dark-theme .theme-toggle-btn {
+            color: white;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .theme-toggle-btn:hover {
+            transform: rotate(30deg);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 50px;
+            padding-bottom: 15px;
+            text-align: center;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            border-radius: 2px;
+        }
+        
+        .project-card {
+            border-radius: 20px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            border: none;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        
+        body.light-theme .project-card {
+            background: white;
+            box-shadow: 0 4px 25px rgba(0,0,0,0.1);
+        }
+        
+        body.dark-theme .project-card {
+            background: rgba(30, 41, 59, 0.6);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .project-content {
+            padding: 25px;
+        }
+        
+        .project-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        body.light-theme .project-title {
+            color: var(--alkyy-blue-dark);
+        }
+        
+        body.dark-theme .project-title {
+            color: white;
+        }
+        
+        .project-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        body.light-theme .project-meta {
+            color: #64748b;
+        }
+        
+        body.dark-theme .project-meta {
+            color: #94a3b8;
+        }
+        
+        .project-description {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .project-stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+        
+        body.light-theme .project-stats {
+            border-top-color: #e2e8f0;
+        }
+        
+        body.dark-theme .project-stats {
+            border-top-color: #334155;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.2rem;
+            font-weight: 700;
+            display: block;
+        }
+        
+        body.light-theme .stat-number {
+            color: var(--alkyy-blue-dark);
+        }
+        
+        body.dark-theme .stat-number {
+            color: var(--alkyy-blue);
+        }
+        
+        .stat-label {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .hero-section {
+            padding: 80px 0 60px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* Custom navbar toggler */
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+            position: relative;
+        }
+        
+        .navbar-toggler-icon {
+            background: none;
+            width: 24px;
+            height: 18px;
+            position: relative;
+            display: block;
+        }
+        
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: currentColor;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-toggler-icon::before {
+            top: 0;
+        }
+        
+        .navbar-toggler-icon::after {
+            bottom: 0;
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+            transform: translateY(8px) rotate(45deg);
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+        
+        .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+            background: transparent;
+        }
+        
+        /* Move cat animation */
+        .move-cat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            animation: floatCat 3s ease-in-out infinite;
+        }
+        
+        .move-cat:hover {
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+        }
+        
+        @keyframes floatCat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        /* Click animation */
+        .click-animation {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--alkyy-blue);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            animation: clickRipple 0.6s ease-out;
+        }
+        
+        @keyframes clickRipple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.7;
+            }
+            100% {
+                width: 100px;
+                height: 100px;
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .project-image {
+                height: 200px;
+            }
+            
+            .project-title {
+                font-size: 1.2rem;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+            
+            .move-cat {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-title::after {
+                width: 80px;
+            }
+            
+            .project-image {
+                height: 180px;
+            }
+            
+            .project-content {
+                padding: 20px;
+            }
+            
+            .project-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .move-cat {
+                width: 45px;
+                height: 45px;
+                font-size: 0.9rem;
+                bottom: 15px;
+                right: 15px;
+            }
+        }
+        
+        /* Offcanvas styling */
+        body.light-theme .offcanvas {
+            background-color: white;
+            color: var(--alkyy-light-text);
+        }
+        
+        body.dark-theme .offcanvas {
+            background-color: var(--alkyy-dark-bg);
+            color: var(--alkyy-dark-text);
+        }
+        
+        body.light-theme .offcanvas .nav-link {
+            color: var(--alkyy-blue-dark) !important;
+        }
+        
+        body.dark-theme .offcanvas .nav-link {
+            color: white !important;
+        }
+        
+        .offcanvas-header {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        body.light-theme .offcanvas-header {
+            border-bottom-color: rgba(0,0,0,0.1);
+        }
+        
+        /* Back to menu button */
+        .back-to-menu {
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            background: linear-gradient(135deg, var(--alkyy-blue), var(--alkyy-blue-dark));
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.4);
+            transition: all 0.3s ease;
+            z-index: 998;
+        }
+        
+        .back-to-menu:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 25px rgba(37, 99, 235, 0.6);
+        }
+        
+        @media (max-width: 768px) {
+            .back-to-menu {
+                top: 70px;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Back to Menu Button -->
+    <a href="index.html" class="back-to-menu" title="Back to Menu">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-bolt lightning-icon"></i>
+                <span>Diky Aditia</span>
+            </a>
+            
+            <button class="theme-toggle-btn" id="themeToggle">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <div class="navbar-nav ms-auto d-none d-lg-flex">
+                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="projects.html">Projects</a>
+                <a class="nav-link" href="#contact">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Offcanvas Menu -->
+    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                <i class="fas fa-bolt lightning-icon"></i>Diky Aditia
+            </h5>
+            <button type="button" class="btn p-0" data-bs-dismiss="offcanvas" aria-label="Close">
+                <span class="custom-close" style="font-size:1.25rem;color:currentColor;opacity:0.8">&times;</span>
+            </button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html" data-bs-dismiss="offcanvas">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="projects.html" data-bs-dismiss="offcanvas">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact" data-bs-dismiss="offcanvas">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">My Certificates</h1>
+            <p class="hero-subtitle">Official recognition of my skills, experiences, and professional competencies in electrical engineering and IoT.</p>
+        </div>
+    </section>
+
+    <!-- Certificates Grid -->
+    <section class="container">
+        <div class="row" id="certificatesContainer">
+
+            <!-- Certificate 1: Organisational Experience -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars1.png" alt="Organisational Experience Certificate">
+                        <span class="project-badge bg-info">Leadership</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Organisational Experience</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Jul 2024 – Jul 2025</span>
+                            <span><i class="fas fa-university me-2"></i>PNM</span>
+                        </div>
+                        <p class="project-description">
+                            Certificate as Head of Information & Communication Documentation Media Division at Electrical Engineering Student Association, Politeknik Negeri Madiun. Led 3 team members in documenting events and creating promotional content.
+                        </p>
+                    </div>
+                </div>
+            </ul>
+            </div>
+
+            <!-- Certificate 2: Internship at PT. BIMA ENERGI PRATAMA -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars2.png" alt="Internship Certificate">
+                        <span class="project-badge bg-success">Internship</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Electrical Engineering Internship</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Jan – Jul 2024</span>
+                            <span><i class="fas fa-building me-2"></i>PT. BIMA ENERGI PRATAMA</span>
+                        </div>
+                        <p class="project-description">
+                            Completed 6-month industrial internship. Gained hands-on experience in 20kV panel making, PLC reinstallation, power meter & OCR analysis, and IoT module integration in electrical panels.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 3: InnoWorks 2025 Participant -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars3.png" alt="InnoWorks 2025 Certificate">
+                        <span class="project-badge bg-warning text-dark">Event</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">InnoWorks 2025 Participant</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Oct 21–22, 2025</span>
+                            <span><i class="fas fa-graduation-cap me-2"></i>EFCRTECH</span>
+                        </div>
+                        <p class="project-description">
+                            Participated in InnoWorks 2025: "Accelerating Digital Transformation Through Innovation", organized by Efortech Solutions and Advantech. Focused on industrial IoT and smart systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 4: English Proficiency Test -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars4.png" alt="English Proficiency Certificate">
+                        <span class="project-badge bg-primary">Language</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">English Proficiency Test</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Jun 28, 2025</span>
+                            <span><i class="fas fa-language me-2"></i>PNM Language Center</span>
+                        </div>
+                        <p class="project-description">
+                            Achieved a total converted score of 460 (TOEFL equivalent). Valid for 1 year. Sections: Listening (52), Structure (31), Reading & Vocabulary (55).
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 5: WISE-IoT Certified (Core Level I) -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars5.png" alt="WISE-IoT Certification">
+                        <span class="project-badge bg-purple">IoT</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">WISE-IoT Certified: Core Level I & II</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Sep 2, 2024</span>
+                            <span><i class="fas fa-microchip me-2"></i>Advantech</span>
+                        </div>
+                        <p class="project-description">
+                            Successfully completed WISE-PaaS Core Level I certification program by Advantech, validating foundational knowledge in industrial IoT platform development and integration.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificate 6: Competency Certificate - Medium Voltage -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="gambars6.png" alt="Competency Certificate">
+                        <span class="project-badge bg-danger">Professional</span>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Medium Voltage Installation Competency</h3>
+                        <div class="project-meta">
+                            <span><i class="fas fa-calendar me-2"></i>Aug 16, 2025</span>
+                            <span><i class="fas fa-industry me-2"></i>PT. Lisan Nusantara Satu</span>
+                        </div>
+                        <p class="project-description">
+                            Certified as Team Leader for Medium Voltage Utilization Installation. Competent in coordinating construction and installation of MV systems (qualification level 3). Valid for 3 years.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Move Cat Button -->
+    <div class="move-cat" id="moveCat" title="Move to Top">
+        <i class="fas fa-cat"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="mt-5 py-4">
+        <div class="container text-center">
+            <p class="mb-0">&copy; 2025 Diky Aditia Dwi Saputra</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+            body.classList.remove('dark-theme');
+            body.classList.add('light-theme');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            if (body.classList.contains('dark-theme')) {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        const moveCat = document.getElementById('moveCat');
+        moveCat.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            
+            moveCat.style.animation = 'none';
+            setTimeout(() => {
+                moveCat.style.animation = 'floatCat 3s ease-in-out infinite';
+            }, 10);
+        });
+        
+        document.addEventListener('click', function(e) {
+            if (e.target.tagName === 'A' && e.target.href) {
+                return;
+            }
+            
+            const clickAnimation = document.createElement('div');
+            clickAnimation.className = 'click-animation';
+            clickAnimation.style.left = e.pageX + 'px';
+            clickAnimation.style.top = e.pageY + 'px';
+            document.body.appendChild(clickAnimation);
+            
+            setTimeout(() => {
+                clickAnimation.remove();
+            }, 600);
+        });
+
+        // Allow normal navigation for non-hash links
+        document.querySelectorAll('a').forEach(anchor => {
+            const href = anchor.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        const offcanvas = bootstrap.Offcanvas.getInstance(document.getElementById('offcanvasNavbar'));
+                        if (offcanvas) offcanvas.hide();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
+
